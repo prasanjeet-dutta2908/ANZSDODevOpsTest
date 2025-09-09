@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aiPluginUtterances>
+        <developerName>utterance_canyoufetc0</developerName>
+        <language>en_US</language>
+        <masterLabel>utterance_canyoufetc0</masterLabel>
+        <utterance>Can you fetch the existing task records for account</utterance>
+    </aiPluginUtterances>
+    <aiPluginUtterances>
+        <developerName>utterance_canyoureco1</developerName>
+        <language>en_US</language>
+        <masterLabel>utterance_canyoureco1</masterLabel>
+        <utterance>Can you recommend some next best actions?</utterance>
+    </aiPluginUtterances>
+    <canEscalate>false</canEscalate>
+    <description>This topic is responsible for guiding users by suggesting next best actionable tasks they can create. It also involves fetching the existing tasks and assisting in the creation of new tasks to ensure users can effectively manage their next steps.</description>
+    <developerName>Task_Creation</developerName>
+    <genAiFunctions>
+        <functionName>Create_Task_Record_from_Agent</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Compare_the_recommended_task</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>IF User requests to suggest tasks THEN Based on the client interactions data retrieved, recommend some best next actions/tasks
+
+IF At least one task has been suggested THEN Display the set of recommended tasks in a numbered list Following the below format: • Subject: A short description of the task. One sentence fragment. Make it very concise.• Description: A maximum of two sentences under 20 words describing what needs to be accomplished in this task.• Due Date: The date that the task is due. Set the date one month after today&apos;s date.
+
+IF  THEN Generate a list of tasks based on the client interaction summary.
+
+IF At least one task has been suggested THEN Display the set of recommended tasks in a numbered list..
+
+IF user wants to create one or more of the suggested tasks THEN Check if any of the suggested tasks are duplicates of pre-existing tasks.
+
+IF One or more potential duplicate tasks are found THEN Inform user of any potential duplicates, showing the detail of each duplicate linked to the task number and ask which task numbers to proceed in creating.
+
+IF No potential duplicates found OR Users asks for one or more tasks to be created THEN Create Tasks that the user requests by task number..
+
+IF Successfully created THEN Display the created task record to the user in the following format:
+Your tasks have been created successfully!! Click on the task to view task details:
+
+&lt;a href=&amp;quot;/[Task Id]&amp;quot;&gt;[Task Subject]&lt;/a&gt;</description>
+        <developerName>instruction_ifuserrequ0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifuserrequ0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Task Creation</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to suggest next best actionable tasks/actions based on client interactions, fetch existing tasks, and assist in creating new tasks to help users manage their next steps effectively.</scope>
+</GenAiPlugin>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_1</activeVersionIdentifier>
+    <developerName>Interaction_Summary</developerName>
+    <masterLabel>Interaction Summary</masterLabel>
+    <relatedEntity>InteractionSummary</relatedEntity>
+    <relatedField>InteractionSummary.MeetingNotes</relatedField>
+    <templateVersions>
+        <content>Based on the {!$Input:InteractionSummary.Name} and {!$Input:InteractionSummary.NextSteps}, design a well formatted plan.
+
+INSTRUCTIONS:
+
+&quot;&quot;&quot;
+1. Format the response as follows:
+(Make sure the main words are highlighted in Bold)
+Meeting Plan:
+1. [Add the first step for the plan]
+2. (likewise plan out the atleast 5 steps)
+
+
+
+FORMATTING GUIDELINES;
+ &quot;&quot;&quot;
+1. All output must be valid HTML
+2. Each section name should be in bold and inline in the paragraph: &quot;&lt;strong&gt;Credit Assessment&lt;/strong&gt; The customer...&quot;.
+3. Any numerical values should be bold, using &lt;strong&gt; tag.
+4. When appropriate, add emphasis to certain pieces of text, up to 2 or 3 words at a time, by itaicizing, using &lt;em&gt; tag, adjective + noun or verb combinations: &quot;&lt;em&gt;almost always&lt;/em&gt;&quot;.
+&quot;&quot;&quot;
+
+HTML GENERATION GUIDELINES:
+&quot;&quot;&quot;
+1. no tags for paragraphs
+2. &lt;a&gt; for links
+3. &lt;strong&gt; for bolded content
+4. &lt;em&gt; for italicised content
+5. Don&apos;t use any heading tags
+&quot;&quot;&quot;
+
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://InteractionSummary</definition>
+            <referenceName>Input:InteractionSummary</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__fieldCompletion</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

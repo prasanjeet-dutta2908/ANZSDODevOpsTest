@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This agent action is responsible to take the task that the user wants to create as input and performs a semantic comparison against the existing tasks to find out whether the recommended task is a potential duplicate OR is a unique task.</description>
+    <invocationTarget>Compare_the_recommended_task</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <masterLabel>Compare the recommended task</masterLabel>
+</GenAiFunction>

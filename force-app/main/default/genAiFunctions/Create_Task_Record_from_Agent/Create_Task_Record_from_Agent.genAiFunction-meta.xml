@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This agent action is responsible for creating new task record.</description>
+    <invocationTarget>Create_Task_Record_from_Agent</invocationTarget>
+    <invocationTargetType>flow</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <masterLabel>Create Task Record from Agent</masterLabel>
+    <progressIndicatorMessage>Creating Tasks...</progressIndicatorMessage>
+</GenAiFunction>

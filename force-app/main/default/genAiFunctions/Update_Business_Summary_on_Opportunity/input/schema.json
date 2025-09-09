@@ -1,0 +1,21 @@
+{
+  "required" : [ "input_BusinessSummary", "input_opportunityId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "input_BusinessSummary" : {
+      "title" : "input_BusinessSummary",
+      "description" : "This is the Business Summary.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "input_opportunityId" : {
+      "title" : "input_opportunityId",
+      "description" : "This is the opportunity Id.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

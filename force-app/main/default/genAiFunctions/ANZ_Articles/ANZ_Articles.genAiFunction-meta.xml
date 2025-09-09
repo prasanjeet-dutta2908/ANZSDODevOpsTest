@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This agent action is used to answer customer queries regarding ANZ Institutional Insights, including market trends, economic updates, industry-specific reports (such as agriculture, sustainability, trade, and infrastructure), and ANZ&apos;s expert commentary on global and regional developments.</description>
+    <invocationTarget>ANZ_Articles</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <masterLabel>ANZ Articles</masterLabel>
+</GenAiFunction>

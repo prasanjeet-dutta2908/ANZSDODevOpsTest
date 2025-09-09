@@ -1,0 +1,31 @@
+{
+  "required" : [ "Input:Recommended_Task", "Input:Account_Record" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:Recommended_Task" : {
+      "title" : "Recommended Task",
+      "description" : "This is the input value containing the details of the task that the user wants to create. ",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Input:Account_Record" : {
+      "title" : "Account Record",
+      "description" : "This is the input Account Record.",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "Account"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "citationMode" : {
+      "title" : "Citation Mode",
+      "description" : "Select Citation Mode",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

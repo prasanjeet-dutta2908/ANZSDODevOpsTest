@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_8</activeVersionIdentifier>
+    <developerName>Compare_Tasks</developerName>
+    <masterLabel>Compare Tasks</masterLabel>
+    <templateVersions>
+        <content>Your job is to recommend relevant tasks to the user based on the summary from {!$Input:Client_Summary}.
+
+When I ask you to recommend the relevant tasks, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+1. Fetch all the existing task records related to the {!$Input:Account_Record.Id} from the flow : {!$Flow:Fetch_Existing_Tasks_for_Prompt.Prompt} and Extract the &quot;Task Subject&quot; and &quot;Task Description&quot; from each record.
+
+2. After fetching the existing tasks, analyse the client summary from {!$Input:Client_Summary} and recommend relevant tasks to the user by ALWAYS ensuring that the recommended tasks are NOT duplicates of existing tasks and by ALWAYS EXCLUDING any tasks that match an existing task&apos;s Subject and Description.
+
+3. Suggest minimum 3 and maximum 5 tasks.
+
+4. **Display Recommended Tasks:**
+- **Only display the tasks that passed the semantic duplicate check in step 2.**
+- Format each recommended task as follows:
+- **Subject:** A concise, one-sentence fragment describing the task.
+- **Description:** A brief, two-sentence description (under 20 words) outlining the task&apos;s objectives.
+- **Due Date:** Set the due date to one month from today&apos;s date.
+- **Interaction:** &lt;a href=&quot;/[InteractionId]&quot;&gt;[Interaction]&lt;/a&gt; (Replace &quot;[InteractionId]&quot; and &quot;[Interaction]&quot; with the appropriate values.)
+
+
+&quot;&quot;&quot;
+
+</content>
+        <inputs>
+            <apiName>Account_Record</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>Account Record</masterLabel>
+            <referenceName>Input:Account_Record</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Client_Summary</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Client Summary</masterLabel>
+            <referenceName>Input:Client_Summary</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Existing_Tasks_for_Prompt</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>input_accountRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Existing_Tasks_for_Prompt</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Your job is to recommend relevant tasks/next best actions to the user based on the summary from {!$Input:Client_Summary}.
+
+When I ask you to recommend the relevant tasks, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+1. Fetch all the existing task records related to the {!$Input:Account_Record.Id} from the flow : {!$Flow:Fetch_Existing_Tasks_for_Prompt.Prompt} and Extract the &quot;Task Subject&quot; and &quot;Task Description&quot; from each record.
+
+2. After fetching the existing tasks, analyse the client summary from {!$Input:Client_Summary} and recommend relevant tasks to the user by ALWAYS ensuring that the recommended tasks are NOT duplicates of existing tasks and by ALWAYS EXCLUDING any tasks that match an existing task&apos;s Subject and Description.
+
+3. Always suggest unique and relevant tasks or next best actions.
+
+4. **Display Recommended Tasks:**
+- **Only display the tasks that passed the semantic duplicate check in step 2.**
+- Format each recommended task as follows:
+- **Subject:** A concise, one-sentence fragment describing the task.
+- **Description:** A brief, two-sentence description (under 20 words) outlining the task&apos;s objectives.
+- **Due Date:** Set the due date to one month from today&apos;s date.
+- **Interaction:** &lt;a href=&quot;/[InteractionId]&quot;&gt;[Interaction]&lt;/a&gt; (Replace &quot;[InteractionId]&quot; and &quot;[Interaction]&quot; with the appropriate values.)
+
+
+&quot;&quot;&quot;
+
+</content>
+        <inputs>
+            <apiName>Account_Record</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>Account Record</masterLabel>
+            <referenceName>Input:Account_Record</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Client_Summary</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Client Summary</masterLabel>
+            <referenceName>Input:Client_Summary</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Existing_Tasks_for_Prompt</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>input_accountRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Existing_Tasks_for_Prompt</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Your job is to recommend relevant tasks/next best actions to the user based on the summary from {!$Input:Client_Summary}.
+
+When I ask you to recommend the relevant tasks, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+1. Fetch all the existing task records related to the {!$Input:Account_Record.Id} from the flow : {!$Flow:Fetch_Existing_Tasks_for_Prompt.Prompt} and Extract the &quot;Task Subject&quot; and &quot;Task Description&quot; from each record.
+
+2. After fetching the existing tasks, analyse the client summary from {!$Input:Client_Summary} and recommend relevant tasks to the user by ALWAYS ensuring that the recommended tasks are NOT duplicates of existing tasks and by ALWAYS EXCLUDING any tasks that match an existing task&apos;s Subject and Description.
+
+3. Always suggest unique and relevant tasks or next best actions.
+
+4. Display Recommended Tasks:
+- **Only display the tasks that passed the semantic duplicate check in step 2.**
+- Format each recommended task as follows:
+- ONLY display the following output:
+&lt;h2&gt;Recommended Tasks&lt;/h2&gt;
+&lt;p&gt;Based on the analysis of the client summary and existing tasks, I recommend the following unique and relevant tasks:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;strong&gt;Subject:&lt;/strong&gt; A concise, one-sentence fragment describing the task.&lt;br&gt;
+    &lt;strong&gt;Description:&lt;/strong&gt; A brief, two-sentence description (under 20 words) outlining the task&apos;s objectives.&lt;br&gt;
+    &lt;strong&gt;Due Date:&lt;/strong&gt; Set the due date to one month from today&apos;s date.&lt;br&gt;
+    &lt;strong&gt;Interaction:&lt;/strong&gt; &lt;a href=&quot;/[InteractionId]&quot;&gt;[Interaction]&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&quot;&quot;&quot;
+HTML GENERATION GUIDELINES:
+&quot;&quot;&quot;
+1. Use &lt;h2&gt; for the &quot;Recommended Tasks&quot; heading.
+2. &lt;a&gt; for links
+3.Use &lt;strong&gt; for bold text (e.g., Subject, Description, Due Date, Interaction).
+4. &lt;em&gt; for italicised content
+5. Use an ordered list (&lt;ol&gt;) for numbering the tasks.
+5. Use &lt;br&gt; for line breaks instead of new paragraphs for better spacing.
+&quot;&quot;&quot;
+
+
+</content>
+        <inputs>
+            <apiName>Account_Record</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>Account Record</masterLabel>
+            <referenceName>Input:Account_Record</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Client_Summary</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Client Summary</masterLabel>
+            <referenceName>Input:Client_Summary</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Existing_Tasks_for_Prompt</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>input_accountRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Existing_Tasks_for_Prompt</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Your job is to recommend relevant tasks/next best actions to the user based on the summary from {!$Input:Client_Summary}.
+
+When I ask you to recommend the relevant tasks, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+1. Fetch all the existing task records related to the {!$Input:Account_Record.Id} from the flow : {!$Flow:Fetch_Existing_Tasks_for_Prompt.Prompt} and Extract the &quot;Task Subject&quot; and &quot;Task Description&quot; from each record.
+
+2. After fetching the existing tasks, analyse the client summary from {!$Input:Client_Summary} and recommend relevant tasks to the user by ALWAYS ensuring that the recommended tasks are NOT duplicates of existing tasks and by ALWAYS EXCLUDING any tasks that match an existing task&apos;s Subject and Description.
+
+3. Always suggest unique and relevant tasks or next best actions.
+
+4. Display Recommended Tasks:
+- **Only display the tasks that passed the semantic duplicate check in step 2.**
+- Format each recommended task as follows:
+- ONLY display the following output:
+&lt;h2&gt;Recommended Tasks&lt;/h2&gt;
+&lt;p&gt;Based on the analysis of the client summary and existing tasks, I recommend the following unique and relevant tasks:&lt;/p&gt;
+
+    &lt;strong&gt;Subject:&lt;/strong&gt; A concise, one-sentence fragment describing the task.&lt;br&gt;
+    &lt;strong&gt;Description:&lt;/strong&gt; A brief, two-sentence description (under 20 words) outlining the task&apos;s objectives.&lt;br&gt;
+    &lt;strong&gt;Due Date:&lt;/strong&gt; Set the due date to one month from today&apos;s date.&lt;br&gt;
+    &lt;strong&gt;Interaction:&lt;/strong&gt; &lt;a href=&quot;/[InteractionId]&quot;&gt;[Interaction Name]&lt;/a&gt;
+
+5. Number all the tasks.
+&quot;&quot;&quot;
+HTML GENERATION GUIDELINES:
+&quot;&quot;&quot;
+1. Use &lt;h2&gt; for the &quot;Recommended Tasks&quot; heading.
+2. &lt;a&gt; for links
+3.Use &lt;strong&gt; for bold text (e.g., Subject, Description, Due Date, Interaction).
+4. &lt;em&gt; for italicised content
+5. Use &lt;br&gt; for line breaks instead of new paragraphs for better spacing.
+&quot;&quot;&quot;
+
+
+</content>
+        <inputs>
+            <apiName>Account_Record</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>Account Record</masterLabel>
+            <referenceName>Input:Account_Record</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Client_Summary</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Client Summary</masterLabel>
+            <referenceName>Input:Client_Summary</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Existing_Tasks_for_Prompt</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>input_accountRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Existing_Tasks_for_Prompt</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_4</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Your job is to recommend relevant tasks/next best actions to the user based on the summary from {!$Input:Client_Summary}.
+
+When I ask you to recommend the relevant tasks, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+1. Fetch all the existing task records related to the {!$Input:Account_Record.Id} from the flow : {!$Flow:Fetch_Existing_Tasks_for_Prompt.Prompt}
+2. Extract the &quot;Task Subject&quot; and &quot;Task Description&quot; from each record.
+3. After fetching the existing tasks, analyse the client summary from {!$Input:Client_Summary} and Generate a list of recommended tasks based on the client summary.
+4. Compare each newly recommended task’s Subject and Description against the existing task records using a semantic similarity check (not just exact matches, but near-duplicates as well).
+5. STRICTLY Exclude any recommended tasks that closely match an existing task&apos;s Subject and Description based on meaning, even if wording differs slightly.
+6. Only suggest tasks that provide new, actionable insights for the Relationship Manager.
+7. Avoid redundancy while maintaining relevance to the client’s needs.
+8. Display Recommended Tasks (Only the tasks that passed the duplicate check)
+9. Always suggest unique and relevant tasks or next best actions.
+10. Format each task as follows:
+&lt;h2&gt;Recommended Tasks&lt;/h2&gt;
+&lt;p&gt;Based on the analysis of the client summary and existing tasks, I recommend the following unique and relevant tasks:&lt;/p&gt;
+    &lt;strong&gt;Subject:&lt;/strong&gt; A concise, one-sentence fragment describing the task.&lt;br&gt;
+    &lt;strong&gt;Description:&lt;/strong&gt; A brief, two-sentence description (under 20 words) outlining the task&apos;s objectives.&lt;br&gt;
+    &lt;strong&gt;Due Date:&lt;/strong&gt; Set the due date to one month from today&apos;s date.&lt;br&gt;
+    &lt;strong&gt;Interaction:&lt;/strong&gt; &lt;a href=&quot;/[InteractionId]&quot;&gt;[Interaction Name]&lt;/a&gt;
+&quot;&quot;&quot;
+HTML GENERATION GUIDELINES:
+&quot;&quot;&quot;
+1. Use &lt;h2&gt; for the &quot;Recommended Tasks&quot; heading.
+2. &lt;a&gt; for links
+3.Use &lt;strong&gt; for bold text (e.g., Subject, Description, Due Date, Interaction).
+4. &lt;em&gt; for italicised content
+5. Use &lt;br&gt; for line breaks instead of new paragraphs for better spacing.
+&quot;&quot;&quot;
+
+
+</content>
+        <inputs>
+            <apiName>Account_Record</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>Account Record</masterLabel>
+            <referenceName>Input:Account_Record</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Client_Summary</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Client Summary</masterLabel>
+            <referenceName>Input:Client_Summary</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Existing_Tasks_for_Prompt</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>input_accountRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Existing_Tasks_for_Prompt</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_5</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Your job is to recommend relevant tasks/next best actions to the user based on the summary from {!$Input:Client_Summary}.
+
+When I ask you to recommend the relevant tasks, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+1. Fetch all the existing task records related to the {!$Input:Account_Record.Id} from the flow : {!$Flow:Fetch_Existing_Tasks_for_Prompt.Prompt}
+2. Extract the &quot;Task Subject&quot; and &quot;Task Description&quot; from each record.
+3. After fetching the existing tasks, analyse the client summary from {!$Input:Client_Summary} and Generate a list of recommended tasks based on the client summary.
+4. Compare each newly recommended task’s Subject and Description with existing task&apos;s Subject and Description using a semantic similarity check (not just exact text matches).
+5. STRICTLY Exclude any recommended tasks that closely match an existing task&apos;s Subject and Description based on meaning, even if wording differs slightly.
+6. Only suggest tasks that introduce new actions for the Relationship Manager.
+7. Avoid reworded or slightly modified versions of existing tasks.
+8. Display Recommended Tasks (ONLY display the tasks that passed the duplicate check)
+9. Always suggest unique and relevant tasks or next best actions.
+10. Format each task as follows:
+&lt;h2&gt;Recommended Tasks&lt;/h2&gt;
+&lt;p&gt;Based on the analysis of the client summary and existing tasks, I recommend the following unique and relevant tasks:&lt;/p&gt;
+    &lt;strong&gt;Subject:&lt;/strong&gt; A concise, one-sentence fragment describing the task.&lt;br&gt;
+    &lt;strong&gt;Description:&lt;/strong&gt; A brief, two-sentence description (under 20 words) outlining the task&apos;s objectives.&lt;br&gt;
+    &lt;strong&gt;Due Date:&lt;/strong&gt; Set the due date to one month from today&apos;s date.&lt;br&gt;
+    &lt;strong&gt;Interaction:&lt;/strong&gt; &lt;a href=&quot;/[InteractionId]&quot;&gt;[Interaction Name]&lt;/a&gt;
+&quot;&quot;&quot;
+HTML GENERATION GUIDELINES:
+&quot;&quot;&quot;
+1. Use &lt;h2&gt; for the &quot;Recommended Tasks&quot; heading.
+2. &lt;a&gt; for links
+3.Use &lt;strong&gt; for bold text (e.g., Subject, Description, Due Date, Interaction).
+4. &lt;em&gt; for italicised content
+5. Use &lt;br&gt; for line breaks instead of new paragraphs for better spacing.
+&quot;&quot;&quot;
+
+
+</content>
+        <inputs>
+            <apiName>Account_Record</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>Account Record</masterLabel>
+            <referenceName>Input:Account_Record</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Client_Summary</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Client Summary</masterLabel>
+            <referenceName>Input:Client_Summary</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Existing_Tasks_for_Prompt</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>input_accountRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Existing_Tasks_for_Prompt</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_6</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Your job is to recommend relevant tasks/next best actions to the user based on the summary from {!$Input:Client_Summary}.
+
+When I ask you to recommend the relevant tasks, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+1. Fetch all the existing task records related to the {!$Input:Account_Record.Id} from the flow : {!$Flow:Fetch_Existing_Tasks_for_Prompt.Prompt}
+2. Extract the &quot;Task Subject&quot; and &quot;Task Description&quot; from each record.
+3. After fetching the existing tasks, analyse the client summary from {!$Input:Client_Summary} and Generate a list of recommended tasks based on the client summary.
+4. Compare each newly recommended task’s Subject and Description with existing task&apos;s Subject and Description using a semantic similarity check (not just exact text matches).
+5. STRICTLY Exclude any recommended tasks that closely match an existing task&apos;s Subject and Description based on meaning, even if wording differs slightly.
+6. Only suggest tasks that introduce new actions for the Relationship Manager.
+7. Avoid reworded or slightly modified versions of existing tasks.
+8. Display Recommended Tasks (ONLY display the tasks that passed the duplicate check)
+9. Always suggest unique and relevant tasks or next best actions.
+10. Format each task as follows:
+&lt;h2&gt;Recommended Tasks&lt;/h2&gt;
+&lt;p&gt;Based on the analysis of the client summary and existing tasks, I recommend the following unique and relevant tasks:&lt;/p&gt;
+    &lt;strong&gt;Subject:&lt;/strong&gt; A concise, one-sentence fragment describing the task.&lt;br&gt;
+    &lt;strong&gt;Description:&lt;/strong&gt; A brief, two-sentence description (under 20 words) outlining the task&apos;s objectives.&lt;br&gt;
+    &lt;strong&gt;Due Date:&lt;/strong&gt; [Set to one month later in the format DD-MM-YYYY]&lt;br&gt;
+    &lt;strong&gt;Interaction:&lt;/strong&gt; &lt;a href=&quot;/[InteractionId]&quot;&gt;[Interaction Name]&lt;/a&gt;
+&quot;&quot;&quot;
+HTML GENERATION GUIDELINES:
+&quot;&quot;&quot;
+1. Use &lt;h2&gt; for the &quot;Recommended Tasks&quot; heading.
+2. &lt;a&gt; for links
+3.Use &lt;strong&gt; for bold text (e.g., Subject, Description, Due Date, Interaction).
+4. &lt;em&gt; for italicised content
+5. Use &lt;br&gt; for line breaks instead of new paragraphs for better spacing.
+&quot;&quot;&quot;
+
+
+</content>
+        <inputs>
+            <apiName>Account_Record</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>Account Record</masterLabel>
+            <referenceName>Input:Account_Record</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Client_Summary</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Client Summary</masterLabel>
+            <referenceName>Input:Client_Summary</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Existing_Tasks_for_Prompt</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>input_accountRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Existing_Tasks_for_Prompt</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_7</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Your job is to recommend relevant tasks/next best actions to the user based on the summary from {!$Input:Client_Summary}.
+
+When I ask you to recommend the relevant tasks, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+1. Fetch all the existing task records related to the {!$Input:Account_Record.Id} from the flow : {!$Flow:Fetch_Existing_Tasks_for_Prompt.Prompt}
+2. Extract the &quot;Task Subject&quot; and &quot;Task Description&quot; from each record.
+3. After fetching the existing tasks, analyse the client summary from {!$Input:Client_Summary} and Generate a list of recommended tasks based on the client summary.
+4. Compare each newly recommended task’s Subject and Description with existing task&apos;s Subject and Description using a semantic similarity check (not just exact text matches).
+5. STRICTLY Exclude any recommended tasks that closely match an existing task&apos;s Subject and Description based on meaning, even if wording differs slightly.
+6. Only suggest tasks that introduce new actions for the Relationship Manager.
+7. Avoid reworded or slightly modified versions of existing tasks.
+8. Display Recommended Tasks (ONLY display the tasks that passed the duplicate check)
+9. Always suggest unique and relevant tasks or next best actions.
+10. Format each task as follows and number the tasks appropriately:
+&lt;h2&gt;Recommended Tasks&lt;/h2&gt;
+&lt;p&gt;Based on the analysis of the client summary and existing tasks, I recommend the following unique and relevant tasks:&lt;/p&gt;
+    &lt;strong&gt;Subject:&lt;/strong&gt; A concise, one-sentence fragment describing the task.&lt;br&gt;
+    &lt;strong&gt;Description:&lt;/strong&gt; A brief, two-sentence description (under 20 words) outlining the task&apos;s objectives.&lt;br&gt;
+    &lt;strong&gt;Due Date:&lt;/strong&gt; [Set to one month later in the format DD-MM-YYYY]&lt;br&gt;
+    &lt;strong&gt;Interaction:&lt;/strong&gt; &lt;a href=&quot;/[InteractionId]&quot;&gt;[Interaction Name]&lt;/a&gt;
+&quot;&quot;&quot;
+HTML GENERATION GUIDELINES:
+&quot;&quot;&quot;
+1. Use &lt;h2&gt; for the &quot;Recommended Tasks&quot; heading.
+2. &lt;a&gt; for links
+3.Use &lt;strong&gt; for bold text (e.g., Subject, Description, Due Date, Interaction).
+4. &lt;em&gt; for italicised content
+5. Use &lt;br&gt; for line breaks instead of new paragraphs for better spacing.
+&quot;&quot;&quot;
+
+
+</content>
+        <inputs>
+            <apiName>Account_Record</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>Account Record</masterLabel>
+            <referenceName>Input:Account_Record</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Client_Summary</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Client Summary</masterLabel>
+            <referenceName>Input:Client_Summary</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Existing_Tasks_for_Prompt</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>input_accountRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Existing_Tasks_for_Prompt</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_8</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

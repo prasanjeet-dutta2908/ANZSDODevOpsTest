@@ -1,0 +1,14 @@
+{
+  "required" : [ "input_accNumber" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "input_accNumber" : {
+      "title" : "input_accNumber",
+      "description" : "This is the input value entered by the user which is the Account Number.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

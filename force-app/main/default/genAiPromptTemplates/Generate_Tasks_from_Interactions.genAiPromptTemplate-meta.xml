@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_16</activeVersionIdentifier>
+    <developerName>Generate_Tasks_from_Interactions</developerName>
+    <masterLabel>Generate Tasks from Interactions</masterLabel>
+    <templateVersions>
+        <content>Generate a list of tasks from the meeting notes from this interaction summary:
+{!$Flow:Fetch_Latest_Interactions.Prompt}
+
+For each task provide this data:
+ActivityDate: The date that the task is due. The due date must always be set to a date that is after the Last Modified Date from the Interaction record.
+Priority: Your choices are Normal or High. Default to Normal unless there is indication in the Interaction Summary that this task is urgent. Then mark it high.
+Subject: Short description of the task. One sentence fragment. Make it very concise.
+WhatId: Assign the Interaction Record Id
+AssignedTo: This is the name of the person that the task has been assigned to. If no-one has been assigned to the task then use the Owner Id  
+Description: Max of two or three sentences describing what needs to be accomplished in this task.
+Type: Enter the text &quot;Task&quot;.
+
+Format the output as a string that is a JSON List. Include only the JSON content and nothing else. Use this format:
+[{&quot;ActivityDate__c&quot;: &quot;ActivityDate here&quot;,  
+&quot;Priority__c&quot;: &quot;Priority here&quot;,  
+&quot;Subject__c&quot;: &quot;Subject here&quot;,  
+&quot;WhatId__c&quot;: &quot;WhatId here&quot;,  
+&quot;AssignedTo__c&quot;: &quot;AssignedTo here&quot;,  
+&quot;Description__c&quot;: &quot;Description here&quot;,
+&quot;Type__c&quot;: &quot;Type here&quot;}]
+
+
+
+</content>
+        <inputs>
+            <apiName>accountRecord</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>accountRecord</masterLabel>
+            <referenceName>Input:accountRecord</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Latest_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>accountRecord</parameterName>
+                <valueExpression>{!$Input:accountRecord}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Latest_Interactions</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Generate a list of tasks from the meeting notes from this interaction summary:
+{!$Flow:Fetch_Latest_Interactions.Prompt}
+
+For each task provide this data:
+ActivityDate: The date that the task is due. The due date must always be set to a date that is after the Last Modified Date from the Interaction record. **Format the date as YYYY-MM-DD.**
+Priority: Your choices are Normal or High. Default to Normal unless there is indication in the Interaction Summary that this task is urgent. Then mark it high.
+Subject: Short description of the task. One sentence fragment. Make it very concise.
+WhatId: Assign the Interaction Record Id
+AssignedTo: This is the name of the person that the task has been assigned to. If no-one has been assigned to the task then use the Owner Id  
+Description: Max of two or three sentences describing what needs to be accomplished in this task.
+Type: Enter the text &quot;Task&quot;.
+
+Format the output as a string that is a JSON List. Include only the JSON content and nothing else. Use this format:
+[{&quot;ActivityDate__c&quot;: &quot;YYYY-MM-DD here&quot;,  
+&quot;Priority__c&quot;: &quot;Priority here&quot;,  
+&quot;Subject__c&quot;: &quot;Subject here&quot;,  
+&quot;WhatId__c&quot;: &quot;WhatId here&quot;,  
+&quot;AssignedTo__c&quot;: &quot;AssignedTo here&quot;,  
+&quot;Description__c&quot;: &quot;Description here&quot;,
+&quot;Type__c&quot;: &quot;Type here&quot;}]
+
+
+
+</content>
+        <inputs>
+            <apiName>accountRecord</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>accountRecord</masterLabel>
+            <referenceName>Input:accountRecord</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Latest_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>accountRecord</parameterName>
+                <valueExpression>{!$Input:accountRecord}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Latest_Interactions</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Generate a list of tasks from the meeting notes from this interaction summary:
+{!$Flow:Fetch_Latest_Interactions.Prompt}
+
+For each task provide this data:
+ActivityDate: The date that the task is due. The due date must always be set to a date that is after the Last Modified Date from the Interaction record. **Format the date as YYYY-MM-DD.**
+Priority: Your choices are Normal or High. Default to Normal unless there is indication in the Interaction Summary that this task is urgent. Then mark it high.
+Subject: Short description of the task. One sentence fragment. Make it very concise.
+WhatId: Assign the {!$Input:accountRecord.Id}
+AssignedTo: This is the name of the person that the task has been assigned to. If no-one has been assigned to the task then use the Owner Id  
+Description: Max of two or three sentences describing what needs to be accomplished in this task.
+Type: Enter the text &quot;Task&quot;.
+
+Format the output as a string that is a JSON List. Include only the JSON content and nothing else. Use this format:
+[{&quot;ActivityDate__c&quot;: &quot;YYYY-MM-DD here&quot;,  
+&quot;Priority__c&quot;: &quot;Priority here&quot;,  
+&quot;Subject__c&quot;: &quot;Subject here&quot;,  
+&quot;WhatId__c&quot;: &quot;WhatId here&quot;,  
+&quot;AssignedTo__c&quot;: &quot;AssignedTo here&quot;,  
+&quot;Description__c&quot;: &quot;Description here&quot;,
+&quot;Type__c&quot;: &quot;Type here&quot;}]
+
+
+
+</content>
+        <inputs>
+            <apiName>accountRecord</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>accountRecord</masterLabel>
+            <referenceName>Input:accountRecord</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Latest_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>accountRecord</parameterName>
+                <valueExpression>{!$Input:accountRecord}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Latest_Interactions</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Generate a list of tasks limiting to 4-5 from the meeting notes from this interaction summary:
+{!$Flow:Fetch_Latest_Interactions.Prompt}
+
+For each task provide this data:
+ActivityDate: The date that the task is due. The due date must always be set to a date that is after the Last Modified Date from the Interaction record. **Format the date as YYYY-MM-DD.**
+Priority: Your choices are Low, Medium, Normal or High. **Assign the priority based on the context of the interaction summary.** If the task is urgent, use High. If it is less urgent, use Low. If the task is of average importance use Medium or Normal.
+Subject: Short description of the task. One sentence fragment. Make it very concise.
+WhatId: Assign the {!$Input:accountRecord.Id}
+AssignedTo: This is the name of the person that the task has been assigned to. If no-one has been assigned to the task then use the Owner Id  
+Description: Max of two or three sentences describing what needs to be accomplished in this task.
+Type: Enter the text &quot;Task&quot;.
+
+Format the output as a string that is a JSON List. Include only the JSON content and nothing else. Use this format:
+[{&quot;ActivityDate__c&quot;: &quot;YYYY-MM-DD here&quot;,  
+&quot;Priority__c&quot;: &quot;Priority here&quot;,  
+&quot;Subject__c&quot;: &quot;Subject here&quot;,  
+&quot;WhatId__c&quot;: &quot;WhatId here&quot;,  
+&quot;AssignedTo__c&quot;: &quot;AssignedTo here&quot;,  
+&quot;Description__c&quot;: &quot;Description here&quot;,
+&quot;Type__c&quot;: &quot;Type here&quot;}]
+
+
+
+</content>
+        <inputs>
+            <apiName>accountRecord</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>accountRecord</masterLabel>
+            <referenceName>Input:accountRecord</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Latest_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>accountRecord</parameterName>
+                <valueExpression>{!$Input:accountRecord}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Latest_Interactions</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_4</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Generate a list of tasks limiting to 4-5 from the meeting notes from this interaction summary:
+{!$Flow:Fetch_Latest_Interactions.Prompt}
+
+For each task provide this data:
+ActivityDate: The date that the task is due. The due date must always be set to a date that is after the Last Modified Date from the Interaction record. **Format the date as YYYY-MM-DD.**
+Priority: Your choices are Low, Medium, Normal or High. **Assign the priority based on the context of the interaction summary.** If the task is urgent, use High. If it is less urgent, use Low. If the task is of average importance use Medium or Normal.
+Subject: Short description of the task. One sentence fragment. Make it very concise.
+WhatId: Assign the {!$Input:accountRecord.Id}
+AssignedTo: This is the name of the person that the task has been assigned to. If no-one has been assigned to the task then use the Owner Id  
+Description: Max of two or three sentences describing what needs to be accomplished in this task.
+Type: Enter the text &quot;Task&quot;.
+Reason: Provide a short reason why this task was generated. 
+Source: Provide the interaction record link where the information came from. Use the format: &quot;[interaction record URL]&quot;. Replace &quot;[interaction record URL]&quot; with the actual URL. example : https://storm-5a2f6315e18d10.lightning.force.com/lightning/r/Interaction/0kzKc000000kFfbIAE
+
+Format the output as a string that is a JSON List. Include only the JSON content and nothing else. Use this format:
+[{&quot;ActivityDate__c&quot;: &quot;YYYY-MM-DD here&quot;,  
+&quot;Priority__c&quot;: &quot;Priority here&quot;,  
+&quot;Subject__c&quot;: &quot;Subject here&quot;,  
+&quot;WhatId__c&quot;: &quot;WhatId here&quot;,  
+&quot;AssignedTo__c&quot;: &quot;AssignedTo here&quot;,  
+&quot;Description__c&quot;: &quot;Description here&quot;,
+&quot;Type__c&quot;: &quot;Type here&quot;, 
+&quot;Reason__c&quot;: &quot;Reason here&quot;, 
+&quot;Source__c&quot;: &quot;Source here&quot;}]
+
+
+
+</content>
+        <inputs>
+            <apiName>accountRecord</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>accountRecord</masterLabel>
+            <referenceName>Input:accountRecord</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Latest_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>accountRecord</parameterName>
+                <valueExpression>{!$Input:accountRecord}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Latest_Interactions</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_5</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Generate a list of tasks limiting to 4-5 from the meeting notes from this interaction summary:
+{!$Flow:Fetch_Latest_Interactions.Prompt}
+
+For each task provide this data:
+ActivityDate: The date that the task is due. The due date must always be set to a date that is after the Last Modified Date from the Interaction record. **Format the date as YYYY-MM-DD.**
+Priority: Your choices are Low, Medium, Normal or High. **Assign the priority based on the context of the interaction summary.** If the task is urgent, use High. If it is less urgent, use Low. If the task is of average importance use Medium or Normal.
+Subject: Short description of the task. One sentence fragment. Make it very concise.
+WhatId: Assign the {!$Input:accountRecord.Id}
+AssignedTo: This is the name of the person that the task has been assigned to. If no-one has been assigned to the task then use the Owner Id  
+Description: Max of two or three sentences describing what needs to be accomplished in this task.
+Type: Enter the text &quot;Task&quot;.
+Reason: Provide a short reason why this task was generated. 
+Source: Provide the interaction record link where the information came from. Use the format: &quot;[interaction record URL]&quot;. Replace &quot;[interaction record URL]&quot; with the actual URL. example : https://storm-5a2f6315e18d10.lightning.force.com/0kzKc000000kFfbIAE
+
+Format the output as a string that is a JSON List. Include only the JSON content and nothing else. Use this format:
+[{&quot;ActivityDate__c&quot;: &quot;YYYY-MM-DD here&quot;,  
+&quot;Priority__c&quot;: &quot;Priority here&quot;,  
+&quot;Subject__c&quot;: &quot;Subject here&quot;,  
+&quot;WhatId__c&quot;: &quot;WhatId here&quot;,  
+&quot;AssignedTo__c&quot;: &quot;AssignedTo here&quot;,  
+&quot;Description__c&quot;: &quot;Description here&quot;,
+&quot;Type__c&quot;: &quot;Type here&quot;, 
+&quot;Reason__c&quot;: &quot;Reason here&quot;, 
+&quot;Source__c&quot;: &quot;Source here&quot;}]
+
+
+
+</content>
+        <inputs>
+            <apiName>accountRecord</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>accountRecord</masterLabel>
+            <referenceName>Input:accountRecord</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Latest_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>accountRecord</parameterName>
+                <valueExpression>{!$Input:accountRecord}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Latest_Interactions</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_6</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Generate a list of tasks limiting to 4-5 from the meeting notes from this interaction summary:
+{!$Flow:Fetch_Latest_Interactions.Prompt}
+
+For each task provide this data:
+ActivityDate: The date that the task is due. The due date must always be set to a date that is month after the Last Modified Date from the Interaction record. **Format the date as YYYY-MM-DD.**
+Priority: Your choices are Low, Medium, Normal or High. **Assign the priority based on the context of the interaction summary.** If the task is urgent, use High. If it is less urgent, use Low. If the task is of average importance use Medium or Normal.
+Subject: Short description of the task. One sentence fragment. Make it very concise.
+WhatId: Assign the {!$Input:accountRecord.Id}
+AssignedTo: This is the name of the person that the task has been assigned to. If no-one has been assigned to the task then use the Owner Id  
+Description: Max of two or three sentences describing what needs to be accomplished in this task.
+Type: Enter the text &quot;Task&quot;.
+Reason: Provide a short reason why this task was generated. 
+Source: Provide the interaction record link where the information came from. Use the format: &quot;[interaction record URL]&quot;. Replace &quot;[interaction record URL]&quot; with the actual URL. example : https://storm-5a2f6315e18d10.lightning.force.com/0kzKc000000kFfbIAE
+
+Format the output as a string that is a JSON List. Include only the JSON content and nothing else. Use this format:
+[{&quot;ActivityDate__c&quot;: &quot;YYYY-MM-DD here&quot;,  
+&quot;Priority__c&quot;: &quot;Priority here&quot;,  
+&quot;Subject__c&quot;: &quot;Subject here&quot;,  
+&quot;WhatId__c&quot;: &quot;WhatId here&quot;,  
+&quot;AssignedTo__c&quot;: &quot;AssignedTo here&quot;,  
+&quot;Description__c&quot;: &quot;Description here&quot;,
+&quot;Type__c&quot;: &quot;Type here&quot;, 
+&quot;Reason__c&quot;: &quot;Reason here&quot;, 
+&quot;Source__c&quot;: &quot;Source here&quot;}]
+
+
+
+</content>
+        <inputs>
+            <apiName>accountRecord</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>accountRecord</masterLabel>
+            <referenceName>Input:accountRecord</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Latest_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>accountRecord</parameterName>
+                <valueExpression>{!$Input:accountRecord}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Latest_Interactions</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_7</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Generate a list of tasks limiting to 4-5 from the meeting notes from this interaction summary:
+{!$Flow:Fetch_Latest_Interactions.Prompt}
+
+For each task provide this data:
+ActivityDate: The date that the task is due. The due date must always be set to a date that is after the Last Modified Date from the Interaction record. **Format the date as YYYY-MM-DD.**
+Priority: Your choices are Low, Medium, Normal or High. **Assign the priority based on the context of the interaction summary.** If the task is urgent, use High. If it is less urgent, use Low. If the task is of average importance use Medium or Normal.
+Subject: Short description of the task. One sentence fragment. Make it very concise.
+WhatId: Assign the {!$Input:accountRecord.Id}
+AssignedTo: This is the name of the person that the task has been assigned to. If no-one has been assigned to the task then use the Owner Id  
+Description: Max of two sentences under 80-100 words describing what needs to be accomplished in this task.
+Type: Enter the text &quot;Task&quot;.
+Reason: Provide a short reason why this task was generated. 
+Source: Provide the interaction record link where the information came from. Use the format: &quot;[interaction record URL]&quot;. Replace &quot;[interaction record URL]&quot; with the actual URL. example : https://storm-5a2f6315e18d10.lightning.force.com/0kzKc000000kFfbIAE
+
+Format the output as a string that is a JSON List. Include only the JSON content and nothing else. Use this format:
+[{&quot;ActivityDate__c&quot;: &quot;YYYY-MM-DD here&quot;,  
+&quot;Priority__c&quot;: &quot;Priority here&quot;,  
+&quot;Subject__c&quot;: &quot;Subject here&quot;,  
+&quot;WhatId__c&quot;: &quot;WhatId here&quot;,  
+&quot;AssignedTo__c&quot;: &quot;AssignedTo here&quot;,  
+&quot;Description__c&quot;: &quot;Description here&quot;,
+&quot;Type__c&quot;: &quot;Type here&quot;, 
+&quot;Reason__c&quot;: &quot;Reason here&quot;, 
+&quot;Source__c&quot;: &quot;Source here&quot;}]
+
+
+
+</content>
+        <inputs>
+            <apiName>accountRecord</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>accountRecord</masterLabel>
+            <referenceName>Input:accountRecord</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Latest_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>accountRecord</parameterName>
+                <valueExpression>{!$Input:accountRecord}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Latest_Interactions</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_8</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Generate a list of tasks limiting to 4-5 from the meeting notes from this interaction summary:
+{!$Flow:Fetch_Latest_Interactions.Prompt}
+
+For each task provide this data:
+ActivityDate: The date that the task is due. The due date must always be set to a date that is month after the Last Modified Date from the Interaction record. **Format the date as YYYY-MM-DD.**
+Priority: Your choices are Low, Medium, Normal or High. **Assign the priority based on the context of the interaction summary.** If the task is urgent, use High. If it is less urgent, use Low. If the task is of average importance use Medium or Normal.
+Subject: Short description of the task. One sentence fragment. Make it very concise.
+WhatId: Assign the {!$Input:accountRecord.Id}
+AssignedTo: This is the name of the person that the task has been assigned to. If no-one has been assigned to the task then use the Owner Id  
+Description: Max of two sentences under 50-80 words describing what needs to be accomplished in this task.
+Type: Enter the text &quot;Task&quot;.
+Reason: Summarise in 1 sentence the key trigger from the interaction that led to this task being created, ensuring it clearly explains the necessity and context of the follow-up action.
+Source: Provide the interaction record link where the information came from. Use the format: &quot;[interaction record URL]&quot;. Replace &quot;[interaction record URL]&quot; with the actual URL. example : https://storm-5a2f6315e18d10.lightning.force.com/0kzKc000000kFfbIAE
+
+Format the output as a string that is a JSON List. Include only the JSON content and nothing else. Use this format:
+[{&quot;ActivityDate__c&quot;: &quot;YYYY-MM-DD here&quot;,  
+&quot;Priority__c&quot;: &quot;Priority here&quot;,  
+&quot;Subject__c&quot;: &quot;Subject here&quot;,  
+&quot;WhatId__c&quot;: &quot;WhatId here&quot;,  
+&quot;AssignedTo__c&quot;: &quot;AssignedTo here&quot;,  
+&quot;Description__c&quot;: &quot;Description here&quot;,
+&quot;Type__c&quot;: &quot;Type here&quot;, 
+&quot;Reason__c&quot;: &quot;Reason here&quot;, 
+&quot;Source__c&quot;: &quot;Source here&quot;}]
+
+
+
+</content>
+        <inputs>
+            <apiName>accountRecord</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>accountRecord</masterLabel>
+            <referenceName>Input:accountRecord</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Latest_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>accountRecord</parameterName>
+                <valueExpression>{!$Input:accountRecord}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Latest_Interactions</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_9</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Generate a list of tasks limiting to 4-5 from the meeting notes from this interaction summary:
+{!$Flow:Fetch_Latest_Interactions.Prompt}
+
+For each task provide this data:
+ActivityDate: The date that the task is due. The due date must always be set to a date that is month after the Last Modified Date from the Interaction record. **Format the date as YYYY-MM-DD.**
+Priority: Your choices are Low, Medium, Normal or High. **Assign the priority based on the context of the interaction summary.** If the task is urgent, use High. If it is less urgent, use Low. If the task is of average importance use Medium or Normal.
+Subject: Short description of the task. One sentence fragment. Make it very concise.
+WhatId: Assign the {!$Input:accountRecord.Id}
+AssignedTo: This is the name of the person that the task has been assigned to. If no-one has been assigned to the task then use the Owner Id  
+Description: Max of two sentences under 50 words describing what needs to be accomplished in this task.
+Type: Enter the text &quot;Task&quot;.
+Reason: Create 1 sentence brief including the key trigger from the interaction that led to this task being created, ensuring it clearly explains the necessity and context of the follow-up action.
+Source: Provide the interaction record link where the information came from. Use the format: &quot;[interaction record URL]&quot;. Replace &quot;[interaction record URL]&quot; with the actual URL. example : https://storm-5a2f6315e18d10.lightning.force.com/0kzKc000000kFfbIAE
+
+Format the output as a string that is a JSON List. Include only the JSON content and nothing else. Use this format:
+[{&quot;ActivityDate__c&quot;: &quot;YYYY-MM-DD here&quot;,  
+&quot;Priority__c&quot;: &quot;Priority here&quot;,  
+&quot;Subject__c&quot;: &quot;Subject here&quot;,  
+&quot;WhatId__c&quot;: &quot;WhatId here&quot;,  
+&quot;AssignedTo__c&quot;: &quot;AssignedTo here&quot;,  
+&quot;Description__c&quot;: &quot;Description here&quot;,
+&quot;Type__c&quot;: &quot;Type here&quot;, 
+&quot;Reason__c&quot;: &quot;Reason here&quot;, 
+&quot;Source__c&quot;: &quot;Source here&quot;}]
+
+
+
+</content>
+        <inputs>
+            <apiName>accountRecord</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>accountRecord</masterLabel>
+            <referenceName>Input:accountRecord</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Latest_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>accountRecord</parameterName>
+                <valueExpression>{!$Input:accountRecord}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Latest_Interactions</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_10</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Generate a list of tasks limiting to 4-5 from the meeting notes from this interaction summary:
+{!$Flow:Fetch_Latest_Interactions.Prompt}
+
+For each task provide this data:
+ActivityDate: The date that the task is due. The due date must always be set to a date that is month after the Last Modified Date from the Interaction record. **Format the date as YYYY-MM-DD.**
+Priority: Your choices are Low, Medium, Normal or High. **Assign the priority based on the context of the interaction summary.** If the task is urgent, use High. If it is less urgent, use Low. If the task is of average importance use Medium or Normal.
+Subject: Short description of the task. One sentence fragment. Make it very concise.
+WhatId: Assign the {!$Input:accountRecord.Id}
+AssignedTo: This is the name of the person that the task has been assigned to. If no-one has been assigned to the task then use the Owner Id  
+Description: Max of two sentences under  words describing what needs to be accomplished in this task.
+Type: Enter the text &quot;Task&quot;.
+Reason: Provide a concise one-sentence summary highlighting the key trigger or reason for this task, clearly explaining the necessity and context of the follow-up action.
+Source: Provide the interaction record link where the information came from. Use the format: &quot;[interaction record URL]&quot;. Replace &quot;[interaction record URL]&quot; with the actual URL. example : https://storm-5a2f6315e18d10.lightning.force.com/0kzKc000000kFfbIAE
+
+Format the output as a string that is a JSON List. Include only the JSON content and nothing else. Use this format:
+[{&quot;ActivityDate__c&quot;: &quot;YYYY-MM-DD here&quot;,  
+&quot;Priority__c&quot;: &quot;Priority here&quot;,  
+&quot;Subject__c&quot;: &quot;Subject here&quot;,  
+&quot;WhatId__c&quot;: &quot;WhatId here&quot;,  
+&quot;AssignedTo__c&quot;: &quot;AssignedTo here&quot;,  
+&quot;Description__c&quot;: &quot;Description here&quot;,
+&quot;Type__c&quot;: &quot;Type here&quot;, 
+&quot;Reason__c&quot;: &quot;Reason here&quot;, 
+&quot;Source__c&quot;: &quot;Source here&quot;}]
+
+
+
+</content>
+        <inputs>
+            <apiName>accountRecord</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>accountRecord</masterLabel>
+            <referenceName>Input:accountRecord</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Latest_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>accountRecord</parameterName>
+                <valueExpression>{!$Input:accountRecord}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Latest_Interactions</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_11</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Generate a list of tasks limiting to 4-5 from the meeting notes from this interaction summary:
+{!$Flow:Fetch_Latest_Interactions.Prompt}
+
+For each task provide this data:
+ActivityDate: The date that the task is due. The due date must always be set to a date that is month after the Last Modified Date from the Interaction record. **Format the date as YYYY-MM-DD.**
+Priority: Your choices are Low, Medium, Normal or High. **Assign the priority based on the context of the interaction summary.** If the task is urgent, use High. If it is less urgent, use Low. If the task is of average importance use Medium or Normal.
+Subject: Short description of the task. One sentence fragment. Make it very concise.
+WhatId: Assign the {!$Input:accountRecord.Id}
+AssignedTo: This is the name of the person that the task has been assigned to. If no-one has been assigned to the task then use the Owner Id  
+Description: Max of two sentences under  words describing what needs to be accomplished in this task.
+Type: Enter the text &quot;Task&quot;.
+Reason: Provide a concise one-sentence summary highlighting the key trigger or reason for this task, clearly explaining the necessity and context of the follow-up action.
+Source: Provide the interaction record link where the information came from. Use the format: &quot;[interaction record URL]&quot;. Replace &quot;[interaction record URL]&quot; with the actual URL. example : https://storm-5a2f6315e18d10.lightning.force.com/0kzKc000000kFfbIAE
+Interaction__c: Assign the Interaction__c Id from the interaction record where the task is created.
+
+Format the output as a string that is a JSON List. Include only the JSON content and nothing else. Use this format:
+[{&quot;ActivityDate__c&quot;: &quot;YYYY-MM-DD here&quot;,  
+&quot;Priority__c&quot;: &quot;Priority here&quot;,  
+&quot;Subject__c&quot;: &quot;Subject here&quot;,  
+&quot;WhatId__c&quot;: &quot;WhatId here&quot;,  
+&quot;AssignedTo__c&quot;: &quot;AssignedTo here&quot;,  
+&quot;Description__c&quot;: &quot;Description here&quot;,
+&quot;Type__c&quot;: &quot;Type here&quot;, 
+&quot;Reason__c&quot;: &quot;Reason here&quot;, 
+&quot;Source__c&quot;: &quot;Source here&quot;, 
+&quot;Interaction__c&quot;: &quot;Interaction__c Id here&quot;}]
+
+
+</content>
+        <inputs>
+            <apiName>accountRecord</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>accountRecord</masterLabel>
+            <referenceName>Input:accountRecord</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Latest_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>accountRecord</parameterName>
+                <valueExpression>{!$Input:accountRecord}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Latest_Interactions</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_12</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Generate a list of tasks limiting to 4-5 from the meeting notes from this interaction summary:
+{!$Flow:Fetch_Latest_Interactions.Prompt}
+
+For each task provide this data:
+ActivityDate: The date that the task is due. The due date must always be set to a date that is month after the Last Modified Date from the Interaction record. **Format the date as YYYY-MM-DD.**
+Priority: Your choices are Low, Medium, Normal or High. **Assign the priority based on the context of the interaction summary.** If the task is urgent, use High. If it is less urgent, use Low. If the task is of average importance use Medium or Normal.
+Subject: Short description of the task. One sentence fragment. Make it very concise.
+WhatId: Assign the {!$Input:accountRecord.Id}
+AssignedTo: This is the name of the person that the task has been assigned to. If no-one has been assigned to the task then use the Owner Id  
+Description: Max of two sentences under  words describing what needs to be accomplished in this task.
+Type: Enter the text &quot;Task&quot;.
+Reason: Provide a concise one-sentence summary highlighting the key trigger or reason for this task, clearly explaining the necessity and context of the follow-up action.
+Source: Provide the interaction record link where the information came from. Use the format: &quot;[interaction record URL]&quot;. Replace &quot;[interaction record URL]&quot; with the actual URL. example : https://storm-5a2f6315e18d10.lightning.force.com/0kzKc000000kFfbIAE
+Interaction__c: Assign the Interaction__c Id from the interaction record where the task is created.
+
+Format the output as a string that is a JSON List. Include only the JSON content and nothing else. Use this format:
+[{&quot;ActivityDate__c&quot;: &quot;YYYY-MM-DD here&quot;,  
+&quot;Priority__c&quot;: &quot;Priority here&quot;,  
+&quot;Subject__c&quot;: &quot;Subject here&quot;,  
+&quot;WhatId__c&quot;: &quot;WhatId here&quot;,  
+&quot;AssignedTo__c&quot;: &quot;AssignedTo here&quot;,  
+&quot;Description__c&quot;: &quot;Description here&quot;,
+&quot;Type__c&quot;: &quot;Type here&quot;, 
+&quot;Reason__c&quot;: &quot;Reason here&quot;, 
+&quot;Interaction__c&quot;: &quot;Interaction__c Id here&quot;}]
+</content>
+        <inputs>
+            <apiName>accountRecord</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>accountRecord</masterLabel>
+            <referenceName>Input:accountRecord</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Latest_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>accountRecord</parameterName>
+                <valueExpression>{!$Input:accountRecord}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Latest_Interactions</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_13</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Generate a list of tasks, ensuring minimum 2 and maximum 5, based on the meeting notes from this interaction summary: 
+{!$Flow:Fetch_Latest_Interactions.Prompt}
+
+For each task provide this data:
+ActivityDate: The date that the task is due. The due date must always be set to a date that is month after the Last Modified Date from the Interaction record. **Format the date as YYYY-MM-DD.**
+Priority: Your choices are Low, Medium, Normal or High. **Assign the priority based on the context of the interaction summary.** If the task is urgent, use High. If it is less urgent, use Low. If the task is of average importance use Medium or Normal.
+Subject: Short description of the task. One sentence fragment. Make it very concise.
+WhatId: Assign the {!$Input:accountRecord.Id}
+AssignedTo: This is the name of the person that the task has been assigned to. If no-one has been assigned to the task then use the Owner Id  
+Description: Max of two sentences under  words describing what needs to be accomplished in this task.
+Type: Enter the text &quot;Task&quot;.
+Reason: Provide a concise one-sentence summary highlighting the key trigger or reason for this task, clearly explaining the necessity and context of the follow-up action.
+Source: Provide the interaction record link where the information came from. Use the format: &quot;[interaction record URL]&quot;. Replace &quot;[interaction record URL]&quot; with the actual URL. example : https://storm-5a2f6315e18d10.lightning.force.com/0kzKc000000kFfbIAE
+Interaction__c: Assign the Interaction__c Id from the interaction record where the task is created.
+
+Format the output as a string that is a JSON List. Include only the JSON content and nothing else. Use this format:
+[{&quot;ActivityDate__c&quot;: &quot;YYYY-MM-DD here&quot;,  
+&quot;Priority__c&quot;: &quot;Priority here&quot;,  
+&quot;Subject__c&quot;: &quot;Subject here&quot;,  
+&quot;WhatId__c&quot;: &quot;WhatId here&quot;,  
+&quot;AssignedTo__c&quot;: &quot;AssignedTo here&quot;,  
+&quot;Description__c&quot;: &quot;Description here&quot;,
+&quot;Type__c&quot;: &quot;Type here&quot;, 
+&quot;Reason__c&quot;: &quot;Reason here&quot;, 
+&quot;Interaction__c&quot;: &quot;Interaction__c Id here&quot;}]
+</content>
+        <inputs>
+            <apiName>accountRecord</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>accountRecord</masterLabel>
+            <referenceName>Input:accountRecord</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Latest_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>accountRecord</parameterName>
+                <valueExpression>{!$Input:accountRecord}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Latest_Interactions</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_15</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Generate a list of tasks, ensuring minimum 2 and maximum 5, based on the meeting notes from this interaction summary: 
+{!$Flow:Fetch_Latest_Interactions.Prompt}
+
+For each task provide this data:
+ActivityDate: The date that the task is due. The due date must always be set to a date that is month after the Last Modified Date from the Interaction record. **Format the date as YYYY-MM-DD.**
+Priority: Your choices are Low, Medium, Normal or High. **Assign the priority based on the context of the interaction summary.** If the task is urgent, use High. If it is less urgent, use Low. If the task is of average importance use Medium or Normal.
+Subject: Short description of the task. One sentence fragment. Make it very concise.
+WhatId: Assign the {!$Input:accountRecord.Id}
+AssignedTo: This is the name of the person that the task has been assigned to. If no-one has been assigned to the task then use the Owner Id  
+Description: Max of two sentences under  words describing what needs to be accomplished in this task.
+Type: Enter the text &quot;Task&quot;.
+Reason: Provide a concise one-sentence summary highlighting the key trigger or reason for this task, clearly explaining the necessity and context of the follow-up action.
+Interaction__c: Assign the Interaction Id from the interaction record from where the task is getting created.
+
+The response must be a valid JSON list.
+Do not include any introductory text, explanations, or additional formatting. Only return the JSON output.
+The JSON must strictly follow this format:
+
+[{&quot;ActivityDate__c&quot;: &quot;YYYY-MM-DD here&quot;,  
+&quot;Priority__c&quot;: &quot;Priority here&quot;,  
+&quot;Subject__c&quot;: &quot;Subject here&quot;,  
+&quot;WhatId__c&quot;: &quot;WhatId here&quot;,  
+&quot;AssignedTo__c&quot;: &quot;AssignedTo here&quot;,  
+&quot;Description__c&quot;: &quot;Description here&quot;,
+&quot;Type__c&quot;: &quot;Type here&quot;, 
+&quot;Reason__c&quot;: &quot;Reason here&quot;, 
+&quot;Interaction__c&quot;: &quot;Interaction__c Id here&quot;}]
+</content>
+        <inputs>
+            <apiName>accountRecord</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>accountRecord</masterLabel>
+            <referenceName>Input:accountRecord</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Latest_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>accountRecord</parameterName>
+                <valueExpression>{!$Input:accountRecord}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Latest_Interactions</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_16</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

@@ -1,0 +1,28 @@
+{
+  "required" : [ "Input:RetrieverIdOrName", "Input:Query" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:RetrieverIdOrName" : {
+      "title" : "RetrieverIdOrName",
+      "description" : "Always use this Retriever Id -Default_ANZ_websites_articles_Retriever_1Cx_WVt8588bbf6",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Input:Query" : {
+      "title" : "Query",
+      "description" : "Required. A string created by gen AI to be used in knowledge article search.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "citationMode" : {
+      "title" : "Citation Mode",
+      "description" : "Select Citation Mode",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

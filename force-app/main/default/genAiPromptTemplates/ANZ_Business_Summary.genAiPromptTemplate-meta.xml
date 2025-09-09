@@ -1,0 +1,956 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_14</activeVersionIdentifier>
+    <developerName>ANZ_Business_Summary</developerName>
+    <masterLabel>ANZ Business Summary</masterLabel>
+    <relatedEntity>Opportunity</relatedEntity>
+    <relatedField>Opportunity.Business_Summary__c</relatedField>
+    <templateVersions>
+        <content>As a Banker prospecting a new Institutional Bank client, I would like a summary of the client, the client&apos;s industry and recommendations of how ANZ products can potentially support client objectives.
+When I ask you to give me a summary, you should strictly follow the rules:
+
+Instructions:
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+Insights on the client&apos;s:
+Business generally
+Strategies and priorities
+Financial performance
+Key risks or challenges the client faces
+
+{!$EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4.results}
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>Give me a summary of the client’s Name, business, strategies, priorities, financial performance, key risks, and industry insights. Include potential actions or recommendations relevant to the client, their industry, and ANZ Institutional offerings.</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a Banker prospecting a new Institutional Bank client, I would like a summary of the client, the client&apos;s industry and recommendations of how ANZ products can potentially support client objectives.
+When I ask you to give me a summary, you should strictly follow the rules:
+
+Instructions:
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Fetch information from 
+{!$EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4.results}
+3. Display in the Following Format:
+
+Name : [Name of the client]
+Business Overview: 
+Strategies &amp; Priorities : 
+Financial Performance : 
+Key risks or challenges faced : 
+
+Insights on the Client&apos;s Industry:
+
+Potential actions or recommendations in the context of:
+The client;
+The industry; and
+ANZ Institutional products offered
+
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>Name the client and give me a summary of the business, strategies, priorities, financial performance, key risks, and industry insights. Include potential actions or recommendations relevant to the client, their industry, and ANZ Institutional offerings.</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a Banker prospecting a new Institutional Bank client, I would like a summary of the client, the client&apos;s industry and recommendations of how ANZ products can potentially support client objectives.
+When I ask you to give me a summary, you should strictly follow the rules:
+
+Instructions:
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+Insights on the client&apos;s:
+Business generally
+Strategies and priorities
+Financial performance
+Key risks or challenges the client faces
+{!$EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4.results}
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>Give me a summary of the client&apos;s {!$Input:Opportunity.Account_Name__c} Business generally, Strategies and priorities, Financial performance, Key risks or challenges the client faces</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a Banker prospecting a new Institutional Bank client, I would like a summary of the client, the client&apos;s industry and recommendations of how ANZ products can potentially support client objectives.
+When I ask you to give me a summary, you should strictly follow the rules:
+
+Instructions for Client Summary Generation:
+&quot;&quot;&quot;
+When I ask you for a summary of a new Institutional Bank client, please follow these guidelines exactly:
+
+1. **Use Only the Provided Information**  
+  Do not include any additional data or assumptions beyond what is provided.  
+  Include insights on the following areas:
+
+2. **The Client’s Business Overall**
+  Provide a general overview of what the business does.  
+  **Strategies and Priorities**
+  Summarise the client&apos;s strategic focus and current business priorities.  
+  **Financial Performance**
+  Highlight key financial metrics or indicators.  
+  **Key Risks or Challenges**
+  Outline any notable risks, issues, or challenges the client is currently facing.
+
+3. **Use the Following Data Source**  
+  {!$EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4.results}
+
+4. **Formatting Requirements**  
+  - Present the summary using **bold section headings**  
+  - Write in **natural, human-readable paragraphs**  
+  - Ensure **clarity and professionalism in tone**
+  - Format the content using HTML tags to ensure proper rendering in a rich text field.
+
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>Give me a summary of the client&apos;s {!$Input:Opportunity.Account_Name__c} Business generally, Strategies and priorities, Financial performance, Key risks or challenges the client faces</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_4</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a Banker prospecting a new Institutional Bank client, I would like a summary of the client, the client&apos;s industry and recommendations of how ANZ products can potentially support client objectives.
+When I ask you to give me a summary, you should strictly follow the rules:
+
+Instructions for Client Summary Generation:
+&quot;&quot;&quot;
+When I ask you for a summary of a new Institutional Bank client, please follow these guidelines exactly:
+
+1. **Use Only the Provided Information**  
+  Do not include any additional data or assumptions beyond what is provided.  
+  Include insights on the following areas:
+
+2. **The Client’s Business Overall**
+  Provide a general overview of what the business does.  
+  **Strategies and Priorities**
+  Summarise the client&apos;s strategic focus and current business priorities.  
+  **Financial Performance**
+  Highlight key financial metrics or indicators.  
+  **Key Risks or Challenges**
+  Outline any notable risks, issues, or challenges the client is currently facing.
+
+**Recommendations for ANZ Products **
+- 
+-
+
+3. **Use the Following Data Source**  
+  {!$EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4.results}
+
+4. **Formatting Requirements**  
+  - Present the summary using **bold section headings**  
+  - Write in **natural, human-readable paragraphs**  
+  - Ensure **clarity and professionalism in tone**
+  - Format the content using HTML tags to ensure proper rendering in a rich text field.
+
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>Give me a summary of the client&apos;s {!$Input:Opportunity.Account_Name__c} Business generally, Strategies and priorities, Financial performance, Key risks or challenges the client faces</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_5</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a Banker prospecting a new Institutional Bank client, I would like a summary of the client, the client&apos;s industry and recommendations of how ANZ products can potentially support client objectives.
+When I ask you to give me a summary, you should strictly follow the rules:
+
+Instructions for Client Summary Generation:
+&quot;&quot;&quot;
+When I ask you for a summary of a new Institutional Bank client, please follow these guidelines exactly:
+
+1. **Use Only the Provided Information**  
+  Do not include any additional data or assumptions beyond what is provided.  
+  Include insights on the following areas and provide in max 2-3 bullet points :
+
+2. **The Client’s Business Overall**
+  Provide a general overview of what the business does.  
+  **Strategies and Priorities**
+  Summarise the client&apos;s strategic focus and current business priorities in 3-4 max bullet points
+  **Financial Performance**
+  Highlight key financial metrics or indicators in 3-4 max bullet points
+  **Key Risks or Challenges**
+  Outline any notable risks, issues, or challenges the client is currently facing in 3-4 max bullet points
+
+**Potential Recommendations in context with ANZ Products **
+- [Mention &lt;client problem / opportunity/ Risk&gt; which would be supported by &lt;ANZ products / services&gt;] 
+(For example The client has a focus on digitising their services which may bring about increased cyber security risk. ANZ&apos;s Cyber and Data Protection Services advisory would support this initiative)
+
+3. Provide the Recommendations in 3-4 max bullet points
+-
+
+3. **Use the Following Data Source**  
+  {!$EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4.results}
+
+4. **Formatting Requirements**  
+  - Present the summary using **bold section headings**  
+  - Write in **natural, human-readable paragraphs**  
+  - Ensure **clarity and professionalism in tone**
+  - Format the content using HTML tags to ensure proper rendering in a rich text field.
+
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>Give me a summary of the client&apos;s {!$Input:Opportunity.Account_Name__c} Business Overview , Strategies &amp; Priorities, Financial performance, Key risks or challenges the client faces. Recommendations in context with ANZ products &amp; industry</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_6</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a Banker prospecting a new Institutional Bank client, I would like a summary of the client, the client&apos;s industry and recommendations of how ANZ products can potentially support client objectives.
+When I ask you to give me a summary, you should strictly follow the rules:
+
+Instructions for Client Summary Generation:
+&quot;&quot;&quot;
+When I ask you for a summary of a new Institutional Bank client, please follow these guidelines exactly:
+
+1. **Use Only the Provided Information**  
+  Do not include any additional data or assumptions beyond what is provided.  
+  Include insights on the following areas and provide in max 2-3 bullet points :
+
+2. &lt;strong&gt;The Client’s Business Overview&lt;/strong&gt;
+  Provide a general overview of what the business does.  
+  &lt;strong&gt;Strategies and Priorities&lt;/strong&gt;
+  Summarise the client&apos;s strategic focus and current business priorities in 3-4 max bullet points
+  &lt;strong&gt;Financial Performance&lt;/strong&gt;
+  Highlight key financial metrics or indicators in 3-4 max bullet points
+  &lt;strong&gt;Key Risks or Challenges&lt;/strong&gt;
+  Outline any notable risks, issues, or challenges the client is currently facing in 3-4 max bullet points
+
+&lt;strong&gt;Potential Recommendations in context with ANZ Products &lt;/strong&gt;
+- [Mention &lt;client problem / opportunity/ Risk&gt; which would be supported by &lt;ANZ products / services&gt;] 
+(For example The client has a focus on digitising their services which may bring about increased cyber security risk. ANZ&apos;s Cyber and Data Protection Services advisory would support this initiative)
+
+3. Provide the Recommendations in 3-4 max bullet points
+-
+
+4. **Use the Following Data Source**  
+  {!$EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4.results}
+
+5. **Formatting Requirements**  
+  - Present the summary using **bold section headings**  
+  - Write in **natural, human-readable paragraphs**  
+  - Ensure **clarity and professionalism in tone**
+  - Use &lt;strong&gt; for bolded content. Bold all numbers/important key words using &lt;strong&gt;. Format each section name in bold and inline (e.g., &lt;strong&gt;Credit Assessment&lt;/strong&gt; The customer...)  
+  - STRICTLY Format the content using HTML tags to ensure proper rendering in a rich text field.
+
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>Give me a summary of the client&apos;s {!$Input:Opportunity.Account_Name__c} Business Overview , Strategies &amp; Priorities, Financial performance, Key risks or challenges the client faces. Recommendations in context with ANZ products &amp; industry</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_10</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a Banker prospecting a new Institutional Bank client, I would like a summary of the client, the client&apos;s industry and recommendations of how ANZ products can potentially support client objectives.
+When I ask you to give me a summary, you should strictly follow the rules:
+
+Instructions for Client Summary Generation:
+&quot;&quot;&quot;
+When I ask you for a summary of a new Institutional Bank client, please follow these guidelines exactly:
+
+1. **Use Only the Provided Information**  
+  Do not include any additional data or assumptions beyond what is provided.  
+  Include insights on the following areas and provide in max 2-3 bullet points :
+
+2. &lt;h2&gt;The Client’s Business Overview&lt;h2&gt;
+  Provide a general overview of what the business does.  
+  **Strategies and Priorities**
+  Summarise the client&apos;s strategic focus and current business priorities in 3-4 max bullet points
+  **Financial Performance**
+  Highlight key financial metrics or indicators in 3-4 max bullet points
+  **Key Risks or Challenges**
+  Outline any notable risks, issues, or challenges the client is currently facing in 3-4 max bullet points
+
+**Potential Recommendations in context with ANZ Products **
+- [Mention &lt;client problem / opportunity/ Risk&gt; which would be supported by &lt;ANZ products / services&gt;] 
+(For example The client has a focus on digitising their services which may bring about increased cyber security risk. ANZ&apos;s Cyber and Data Protection Services advisory would support this initiative)
+
+3. Provide the Recommendations in 3-4 max bullet points
+-
+
+3. **Use the Following Data Source**  
+  {!$EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4.results}
+
+4. **Formatting Requirements**  
+  - Present the summary using **bold section headings**  
+  - Write in **natural, human-readable paragraphs**  
+  - Ensure **clarity and professionalism in tone**
+  - Format the content using HTML tags to ensure proper rendering in a rich text field.
+
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>Give me a summary of the client&apos;s {!$Input:Opportunity.Account_Name__c} Business Overview , Strategies &amp; Priorities, Financial performance, Key risks or challenges the client faces. Recommendations in context with ANZ products &amp; industry</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_7</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a Banker prospecting a new Institutional Bank client, I would like a summary of the client, the client&apos;s industry and recommendations of how ANZ products can potentially support client objectives.
+When I ask you to give me a summary, you should strictly follow the rules:
+
+Instructions for Client Summary Generation:
+&quot;&quot;&quot;
+When I ask you for a summary of a new Institutional Bank client, please follow these guidelines exactly:
+
+1. **Use Only the Provided Information**  
+  Do not include any additional data or assumptions beyond what is provided.  
+  Include insights on the following areas and provide in max 2-3 bullet points :
+
+2. &lt;strong&gt;The Client’s Business Overview&lt;/strong&gt;
+  Provide a general overview of what the business does.  
+  &lt;strong&gt;Strategies and Priorities&lt;/strong&gt;
+  Summarise the client&apos;s strategic focus and current business priorities in 3-4 max bullet points
+  &lt;strong&gt;Financial Performance&lt;/strong&gt;
+  Highlight key financial metrics or indicators and display in bullet points.
+  &lt;strong&gt;Key Risks or Challenges&lt;/strong&gt;
+  Outline any notable risks, issues, or challenges the client is currently facing in 3-4 max bullet points
+
+&lt;strong&gt;Potential Recommendations in context with ANZ Products &lt;/strong&gt;
+- [Mention &lt;client problem / opportunity/ Risk&gt; which would be supported by &lt;ANZ products / services&gt;] 
+(For example The client has a focus on digitising their services which may bring about increased cyber security risk. ANZ&apos;s Cyber and Data Protection Services advisory would support this initiative)
+
+3. Provide the Recommendations in 3-4 max bullet points
+-
+
+4. **Use the Following Data Source**  
+  {!$EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4.results}
+
+5. **Formatting Requirements**  
+  - Present the summary using **bold section headings**  
+  - Write in **natural, human-readable paragraphs**  
+  - Ensure **clarity and professionalism in tone**
+  - ALWAYS Use &lt;strong&gt; for bolded content. Bold all numbers/important key words using &lt;strong&gt; tag. Format each section name in bold and inline (e.g., &lt;strong&gt;Credit Assessment&lt;/strong&gt; The customer...)  
+  - STRICTLY Format the content using HTML tags to ensure proper rendering in a rich text field.
+
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>Give me a summary of the client&apos;s {!$Input:Opportunity.Account_Name__c} Business Overview , Strategies &amp; Priorities, Financial performance, Key risks or challenges the client faces. Recommendations in context with ANZ products &amp; industry</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_13</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a Banker prospecting a new Institutional Bank client, I would like a summary of the client, the client&apos;s industry and recommendations of how ANZ products can potentially support client objectives.
+When I ask you to give me a summary, you should strictly follow the rules:
+
+Instructions for Client Summary Generation:
+&quot;&quot;&quot;
+When I ask you for a summary of a new Institutional Bank client, please follow these guidelines exactly:
+
+1. **Use Only the Provided Information**  
+  Do not include any additional data or assumptions beyond what is provided.  
+  Include insights on the following areas and provide in max 2-3 bullet points :
+
+2. &lt;h2&gt;The Client’s Business Overview&lt;/h2&gt;
+  Provide a general overview of what the business does.  
+  &lt;h2&gt;Strategies and Priorities&lt;/h2&gt;
+  Summarise the client&apos;s strategic focus and current business priorities in 3-4 max bullet points
+  &lt;h2&gt;Financial Performance&lt;/h2&gt;
+  Highlight key financial metrics or indicators in 3-4 max bullet points
+  &lt;h2&gt;Key Risks or Challenges&lt;/h2&gt;
+  Outline any notable risks, issues, or challenges the client is currently facing in 3-4 max bullet points
+
+&lt;h2&gt;Potential Recommendations in context with ANZ Products &lt;/h2&gt;
+- [Mention &lt;client problem / opportunity/ Risk&gt; which would be supported by &lt;ANZ products / services&gt;] 
+(For example The client has a focus on digitising their services which may bring about increased cyber security risk. ANZ&apos;s Cyber and Data Protection Services advisory would support this initiative)
+
+3. Provide the Recommendations in 3-4 max bullet points
+-
+
+4. **Use the Following Data Source**  
+  {!$EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4.results}
+
+5. **Formatting Requirements**  
+  - Present the summary using **bold section headings**  
+  - Write in **natural, human-readable paragraphs**  
+  - Ensure **clarity and professionalism in tone**
+  - STRICTLY Format the content using HTML tags to ensure proper rendering in a rich text field.
+
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>Give me a summary of the client&apos;s {!$Input:Opportunity.Account_Name__c} Business Overview , Strategies &amp; Priorities, Financial performance, Key risks or challenges the client faces. Recommendations in context with ANZ products &amp; industry</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_8</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a Banker prospecting a new Institutional Bank client, I would like a summary of the client, the client&apos;s industry and recommendations of how ANZ products can potentially support client objectives.
+When I ask you to give me a summary, you should strictly follow the rules:
+
+Instructions for Client Summary Generation:
+&quot;&quot;&quot;
+When I ask you for a summary of a new Institutional Bank client, please follow these guidelines exactly:
+
+1. **Use Only the Provided Information**  
+  Do not include any additional data or assumptions beyond what is provided.  
+  Include insights on the following areas and provide in max 2-3 bullet points :
+
+2. &lt;strong&gt;The Client’s Business Overview&lt;/strong&gt;
+  Provide a general overview of what the business does.  
+  &lt;strong&gt;Strategies and Priorities&lt;/strong&gt;
+  Summarise the client&apos;s strategic focus and current business priorities in 3-4 max bullet points
+  &lt;strong&gt;Financial Performance&lt;/strong&gt;
+  Highlight key financial metrics or indicators in 3-4 max bullet points
+  &lt;strong&gt;Key Risks or Challenges&lt;/strong&gt;
+  Outline any notable risks, issues, or challenges the client is currently facing in 3-4 max bullet points
+
+&lt;strong&gt;Potential Recommendations in context with ANZ Products &lt;/strong&gt;
+- [Mention &lt;client problem / opportunity/ Risk&gt; which would be supported by &lt;ANZ products / services&gt;] 
+(For example The client has a focus on digitising their services which may bring about increased cyber security risk. ANZ&apos;s Cyber and Data Protection Services advisory would support this initiative)
+
+3. Provide the Recommendations in 3-4 max bullet points
+-
+
+4. **Use the Following Data Source**  
+  {!$EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4.results}
+
+5. **Formatting Requirements**  
+  - Present the summary using **bold section headings**  
+  - Write in **natural, human-readable paragraphs**  
+  - Ensure **clarity and professionalism in tone**
+  - Use &lt;strong&gt; for bolded content. Bold all numbers/important key words using &lt;strong&gt;. Format each section name in bold and inline (e.g., &lt;strong&gt;Credit Assessment&lt;/strong&gt; The customer...)  
+  - STRICTLY Format the content using HTML tags to ensure proper rendering in a rich text field.
+
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>Give me a summary of the client&apos;s {!$Input:Opportunity.Account_Name__c} Business Overview , Strategies &amp; Priorities, Financial performance, Key risks or challenges the client faces. Recommendations in context with ANZ products &amp; industry</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_9</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a Banker prospecting a new Institutional Bank client, I would like a summary of the client, the client&apos;s industry and recommendations of how ANZ products can potentially support client objectives.
+When I ask you to give me a summary, you should strictly follow the rules:
+
+Instructions for Client Summary Generation:
+&quot;&quot;&quot;
+When I ask you for a summary of a new Institutional Bank client, please follow these guidelines exactly:
+
+1. **Use Only the Provided Information**  
+  Do not include any additional data or assumptions beyond what is provided.  
+  Include insights on the following areas and provide in max 2-3 bullet points :
+
+2. &lt;strong&gt;The Client’s Business Overview&lt;/strong&gt;
+  Provide a general overview of what the business does.  
+  &lt;strong&gt;Strategies and Priorities&lt;/strong&gt;
+  Summarise the client&apos;s strategic focus and current business priorities in 3-4 max bullet points
+  &lt;strong&gt;Financial Performance&lt;/strong&gt;
+  Highlight key financial metrics or indicators in 3-4 max bullet points
+  &lt;strong&gt;Key Risks or Challenges&lt;/strong&gt;
+  Outline any notable risks, issues, or challenges the client is currently facing in 3-4 max bullet points
+
+&lt;strong&gt;Potential Recommendations in context with ANZ Products &lt;/strong&gt;
+- [Mention &lt;client problem / opportunity/ Risk&gt; which would be supported by &lt;ANZ products / services&gt;] 
+(For example The client has a focus on digitising their services which may bring about increased cyber security risk. ANZ&apos;s Cyber and Data Protection Services advisory would support this initiative)
+
+3. Provide the Recommendations in 3-4 max bullet points
+-
+
+4. **Use the Following Data Source**  
+  {!$EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4.results}
+
+5. **Formatting Requirements**  
+  - Present the summary using **bold section headings**  
+  - Write in **natural, human-readable paragraphs**  
+  - Ensure **clarity and professionalism in tone**
+  - Use &lt;strong&gt; for bolded content. Bold all numbers/important key words using &lt;strong&gt;. Format each section name in bold and inline (e.g., &lt;strong&gt;Credit Assessment&lt;/strong&gt; The customer...)  
+  - STRICTLY Format the content using HTML tags to ensure proper rendering in a rich text field.
+
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>Give me a summary of the client&apos;s {!$Input:Opportunity.Account_Name__c} Business Overview , Strategies &amp; Priorities, Financial performance, Key risks or challenges the client faces. Recommendations in context with ANZ products &amp; industry</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_11</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a Banker prospecting a new Institutional Bank client, I would like a summary of the client, the client&apos;s industry and recommendations of how ANZ products can potentially support client objectives.
+When I ask you to give me a summary, you should strictly follow the rules:
+
+Instructions for Client Summary Generation:
+&quot;&quot;&quot;
+When I ask you for a summary of a new Institutional Bank client, please follow these guidelines exactly:
+
+1. **Use Only the Provided Information**  
+  Do not include any additional data or assumptions beyond what is provided.  
+  Include insights on the following areas and provide in max 2-3 bullet points :
+
+2. &lt;strong&gt;The Client’s Business Overview&lt;/strong&gt;
+  Provide a general overview of what the business does.  
+  &lt;strong&gt;Strategies and Priorities&lt;/strong&gt;
+  Summarise the client&apos;s strategic focus and current business priorities in 3-4 max bullet points
+  &lt;strong&gt;Financial Performance&lt;/strong&gt;
+  Highlight key financial metrics or indicators in 3-4 max bullet points
+  &lt;strong&gt;Key Risks or Challenges&lt;/strong&gt;
+  Outline any notable risks, issues, or challenges the client is currently facing in 3-4 max bullet points
+
+&lt;strong&gt;Potential Recommendations in context with ANZ Products &lt;/strong&gt;
+- [Mention &lt;client problem / opportunity/ Risk&gt; which would be supported by &lt;ANZ products / services&gt;] 
+(For example The client has a focus on digitising their services which may bring about increased cyber security risk. ANZ&apos;s Cyber and Data Protection Services advisory would support this initiative)
+
+3. Provide the Recommendations in 3-4 max bullet points
+-
+
+4. **Use the Following Data Source**  
+  {!$EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4.results}
+
+5. **Formatting Requirements**  
+  - Present the summary using **bold section headings**  
+  - Write in **natural, human-readable paragraphs**  
+  - Ensure **clarity and professionalism in tone**
+  - ALWAYS Use &lt;strong&gt; for bolded content. Bold all numbers/important key words using &lt;strong&gt; tag. Format each section name in bold and inline (e.g., &lt;strong&gt;Credit Assessment&lt;/strong&gt; The customer...)  
+  - STRICTLY Format the content using HTML tags to ensure proper rendering in a rich text field.
+
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>Give me a summary of the client&apos;s {!$Input:Opportunity.Account_Name__c} Business Overview , Strategies &amp; Priorities, Financial performance, Key risks or challenges the client faces. Recommendations in context with ANZ products &amp; industry</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_12</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a Banker prospecting a new Institutional Bank client, I would like a summary of the client, the client&apos;s industry and recommendations of how ANZ products can potentially support client objectives.
+When I ask you to give me a summary, you should strictly follow the rules:
+
+Instructions for Client Summary Generation:
+&quot;&quot;&quot;
+When I ask you for a summary of a new Institutional Bank client, please follow these guidelines exactly:
+
+1. **Use Only the Provided Information**  
+  Do not include any additional data or assumptions beyond what is provided.  
+  Include insights on the following areas and provide in max 2-3 bullet points :
+
+2. &lt;strong&gt;The Client’s Business Overview&lt;/strong&gt;
+  Provide a general overview of what the business does.  
+  &lt;strong&gt;Strategies and Priorities&lt;/strong&gt;
+  Summarise the client&apos;s strategic focus and current business priorities in 3-4 max bullet points
+  &lt;strong&gt;Financial Performance&lt;/strong&gt;
+  ALWAYS Highlight and include key financial metrics like TTV/profit/etc or indicators and display in bullet points.
+  &lt;strong&gt;Key Risks or Challenges&lt;/strong&gt;
+  Outline any notable risks, issues, or challenges the client is currently facing in 3-4 max bullet points
+
+&lt;strong&gt;Potential Recommendations in context with ANZ Products &lt;/strong&gt;
+- [Mention &lt;client problem / opportunity/ Risk&gt; which would be supported by &lt;ANZ products / services&gt;] 
+(For example The client has a focus on digitising their services which may bring about increased cyber security risk. ANZ&apos;s Cyber and Data Protection Services advisory would support this initiative)
+
+3. Provide the Recommendations in 3-4 max bullet points
+-
+
+4. **Use the Following Data Source**  
+  {!$EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4.results}
+
+5. **Formatting Requirements**  
+  - Present the summary using **bold section headings**  
+  - Write in **natural, human-readable paragraphs**  
+  - Ensure **clarity and professionalism in tone**
+  - ALWAYS Use &lt;strong&gt; for bolded content. Bold all numbers/important key words using &lt;strong&gt; tag. Format each section name in bold and inline (e.g., &lt;strong&gt;Credit Assessment&lt;/strong&gt; The customer...)  
+  - STRICTLY Format the content using HTML tags to ensure proper rendering in a rich text field.
+
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>Give me a summary of the client&apos;s {!$Input:Opportunity.Account_Name__c} Business Overview , Strategies &amp; Priorities, Financial performance, Key risks or challenges the client faces. Recommendations in context with ANZ products &amp; industry</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_14</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a Banker prospecting a new Institutional Bank client, I would like a summary of the client, the client&apos;s industry and recommendations of how ANZ products can potentially support client objectives.
+When I ask you to give me a summary, you should strictly follow the rules:
+
+Instructions for Client Summary Generation:
+&quot;&quot;&quot;
+When I ask you for a summary of a new Institutional Bank client, please follow these guidelines exactly:
+
+1. **Use Only the Provided Information**  
+  Do not include any additional data or assumptions beyond what is provided.  
+  Include insights on the following areas and provide in max 2-3 bullet points :
+
+2. &lt;strong&gt;The Client’s Business Overview&lt;/strong&gt;
+  Provide a general overview of what the business does.  
+  &lt;strong&gt;Strategies and Priorities&lt;/strong&gt;
+  Summarise the client&apos;s strategic focus and current business priorities in 3-4 max bullet points
+  &lt;strong&gt;Financial Performance&lt;/strong&gt;
+  ALWAYS Highlight and include key financial metrics like TTV/profit/etc or indicators and display in bullet points.
+  &lt;strong&gt;Key Risks or Challenges&lt;/strong&gt;
+  Outline any notable risks, issues, or challenges the client is currently facing in 3-4 max bullet points
+ &lt;strong&gt;Key Contacts&lt;/strong&gt;
+ List individual names and titles of the client&apos;s key management personnel.
+
+&lt;strong&gt;Potential Recommendations in context with ANZ Products &lt;/strong&gt;
+- [Mention &lt;client problem / opportunity/ Risk&gt; which would be supported by &lt;ANZ products / services&gt;] 
+(For example The client has a focus on digitising their services which may bring about increased cyber security risk. ANZ&apos;s Cyber and Data Protection Services advisory would support this initiative)
+
+3. Provide the Recommendations in 3-4 max bullet points
+-
+
+4. **Use the Following Data Source**  
+  {!$EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4.results}
+
+5. **Formatting Requirements**  
+  - Present the summary using **bold section headings**  
+  - Write in **natural, human-readable paragraphs**  
+  - Ensure **clarity and professionalism in tone**
+  - ALWAYS Use &lt;strong&gt; for bolded content. Bold all numbers/important key words using &lt;strong&gt; tag. Format each section name in bold and inline (e.g., &lt;strong&gt;Credit Assessment&lt;/strong&gt; The customer...)  
+  - STRICTLY Format the content using HTML tags to ensure proper rendering in a rich text field.
+
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>Cold_Claude_CM_12l_WVt01fd71ad</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>Give me a summary of the client&apos;s Business Overview , Strategies &amp; Priorities, Financial performance, Key risks or challenges the client faces, list key contacts with names and titles. Recommendations in context with ANZ products &amp; industry</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_15</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a Banker prospecting a new Institutional Bank client, I would like a summary of the client, the client&apos;s industry and recommendations of how ANZ products can potentially support client objectives.
+When I ask you to give me a summary, you should strictly follow the rules:
+
+Instructions for Client Summary Generation:
+&quot;&quot;&quot;
+When I ask you for a summary of a new Institutional Bank client, please follow these guidelines exactly:
+
+1. **Use Only the Provided Information**  
+  Do not include any additional data or assumptions beyond what is provided.  
+  Include insights on the following areas and provide in max 2-3 bullet points :
+
+2. &lt;strong&gt;The Client’s Business Overview&lt;/strong&gt;
+  Provide a general overview of what the business does.  
+  &lt;strong&gt;Strategies and Priorities&lt;/strong&gt;
+  Summarise the client&apos;s strategic focus and current business priorities in 3-4 max bullet points
+  &lt;strong&gt;Financial Performance&lt;/strong&gt;
+  ALWAYS Highlight and include key financial metrics like TTV/profit/etc or indicators and display in bullet points.
+  &lt;strong&gt;Key Risks or Challenges&lt;/strong&gt;
+  Outline any notable risks, issues, or challenges the client is currently facing in 3-4 max bullet points
+ &lt;strong&gt;Key Contacts&lt;/strong&gt;
+ List names and titles of the Senior Executive Team members.
+
+&lt;strong&gt;Potential Recommendations in context with ANZ Products &lt;/strong&gt;
+- [Mention &lt;client problem / opportunity/ Risk&gt; which would be supported by &lt;ANZ products / services&gt;] 
+(For example The client has a focus on digitising their services which may bring about increased cyber security risk. ANZ&apos;s Cyber and Data Protection Services advisory would support this initiative)
+
+3. Provide the Recommendations in 3-4 max bullet points
+-
+
+4. **Use the Following Data Source**  
+  {!$EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4.results}
+
+5. **Formatting Requirements**  
+  - Present the summary using **bold section headings**  
+  - Write in **natural, human-readable paragraphs**  
+  - Ensure **clarity and professionalism in tone**
+  - ALWAYS Use &lt;strong&gt; for bolded content. Bold all numbers/important key words using &lt;strong&gt; tag. Format each section name in bold and inline (e.g., &lt;strong&gt;Credit Assessment&lt;/strong&gt; The customer...)  
+  - STRICTLY Format the content using HTML tags to ensure proper rendering in a rich text field.
+
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>Give me a summary of the client&apos;s Business Overview , Strategies &amp; Priorities, Financial performance, Key risks or challenges the client faces, names and titles of senior executive team, Recommendations in context with ANZ products &amp; industry</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_16</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a Banker prospecting a new Institutional Bank client, I would like a summary of the client, the client&apos;s industry and recommendations of how ANZ products can potentially support client objectives.
+When I ask you to give me a summary, you should strictly follow the rules:
+
+Instructions for Client Summary Generation:
+&quot;&quot;&quot;
+When I ask you for a summary of a new Institutional Bank client, please follow these guidelines exactly:
+
+1. **Use Only the Provided Information**  
+  Do not include any additional data or assumptions beyond what is provided.  
+  Include insights on the following areas and provide in max 2-3 bullet points :
+
+2. &lt;strong&gt;The Client’s Business Overview&lt;/strong&gt;
+  Provide a general overview of what the business does.  
+  &lt;strong&gt;Strategies and Priorities&lt;/strong&gt;
+  Summarise the client&apos;s strategic focus and current business priorities in 3-4 max bullet points
+  &lt;strong&gt;Financial Performance&lt;/strong&gt;
+  ALWAYS Highlight and include key financial metrics like TTV/profit/etc or indicators and display in bullet points.
+  &lt;strong&gt;Key Risks or Challenges&lt;/strong&gt;
+  Outline any notable risks, issues, or challenges the client is currently facing in 3-4 max bullet points
+
+&lt;strong&gt;Potential Recommendations in context with ANZ Products &lt;/strong&gt;
+- [Mention &lt;client problem / opportunity/ Risk&gt; which would be supported by &lt;ANZ products / services&gt;] 
+(For example The client has a focus on digitising their services which may bring about increased cyber security risk. ANZ&apos;s Cyber and Data Protection Services advisory would support this initiative)
+
+3. Provide the Recommendations in 3-4 max bullet points
+-
+
+4. **Use the Following Data Source**  
+  {!$EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4.results}
+
+5. **Formatting Requirements**  
+  - Present the summary using **bold section headings**  
+  - Write in **natural, human-readable paragraphs**  
+  - Ensure **clarity and professionalism in tone**
+  - ALWAYS Use &lt;strong&gt; for bolded content. Bold all numbers/important key words using &lt;strong&gt; tag. Format each section name in bold and inline (e.g., &lt;strong&gt;Credit Assessment&lt;/strong&gt; The customer...)  
+  - STRICTLY Format the content using HTML tags to ensure proper rendering in a rich text field.
+
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>Give me a summary of the client&apos;s {!$Input:Opportunity.Account_Name__c} Business Overview , Strategies &amp; Priorities, Financial performance, Key risks or challenges the client faces. Recommendations in context with ANZ products &amp; industry</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_17</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__fieldCompletion</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

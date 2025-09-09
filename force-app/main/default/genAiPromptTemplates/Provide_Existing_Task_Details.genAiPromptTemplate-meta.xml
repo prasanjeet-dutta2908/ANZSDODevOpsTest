@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <developerName>Provide_Existing_Task_Details</developerName>
+    <masterLabel>Provide Existing Task Details</masterLabel>
+    <templateVersions>
+        <content>Fetch all the existing task records related to the {!$Input:Account_Record.Id} from the flow : {!$Flow:Fetch_Existing_Tasks_for_Prompt.Prompt}
+and display in the following format:
+
+&quot;&quot;&quot;
+Display all the Task Records :
+
+Task Id: [Task Id]
+Task Subject : [Task Subject]
+Task Description : [Task Description]
+
+&quot;&quot;&quot;
+
+</content>
+        <inputs>
+            <apiName>Account_Record</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>Account Record</masterLabel>
+            <referenceName>Input:Account_Record</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Existing_Tasks_for_Prompt</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>input_accountRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Existing_Tasks_for_Prompt</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

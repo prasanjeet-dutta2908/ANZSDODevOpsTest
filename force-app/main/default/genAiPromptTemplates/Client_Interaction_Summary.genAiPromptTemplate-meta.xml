@@ -1,0 +1,1963 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_25</activeVersionIdentifier>
+    <description>This template is used to generate a client summary for all the interactions.</description>
+    <developerName>Client_Interaction_Summary</developerName>
+    <masterLabel>Client Interaction Summary</masterLabel>
+    <relatedEntity>Account</relatedEntity>
+    <relatedField>Account.FINS_Summary_of_Interaction_Summaries__c</relatedField>
+    <templateVersions>
+        <content>You’re a wealth management advisor working for ANZ Bank and manage a portfolio of ultra high net worth clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Limit bullet points to 4-5 per section for readability.  
+7. Keep each bullet under 20 words, focusing on essential details.  
+8. Summarise insights rather than listing every detail.  
+9. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+
+&lt;br&gt;  **Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] &lt;br&gt;
+
+&lt;br&gt;  **Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] &lt;br&gt;
+
+&lt;br&gt;  **Key Discussion Points:**  (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  
+• [Main topic] – [Brief detail] 
+&lt;br&gt;
+&lt;br&gt;  **Products Discussed:**  (Include 3-4 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+&lt;br&gt;
+&lt;br&gt;  **Next Steps Discussed:**  (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+&lt;br&gt;
+&lt;br&gt;  **Financial Accounts Snapshot:**  (Include 4-5 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+
+10. Generate the summary based on the above instructions using the data found here: {!$Flow:Interactions_Summary.Prompt} and {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt}  
+ 
+&quot;&quot;&quot;
+Now create a summary
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Interactions_Summary</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Interactions_Summary</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a wealth management advisor working for ANZ Bank and manage a portfolio of ultra high net worth clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Limit bullet points to 4-5 per section for readability.  
+7. Keep each bullet under 20 words, focusing on essential details.  
+8. Summarise insights rather than listing every detail.  
+9. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+
+&lt;br&gt;  **Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] &lt;br&gt;
+
+&lt;br&gt;  **Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] &lt;br&gt;
+
+&lt;br&gt;  **Key Discussion Points:**  (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  
+• [Main topic] – [Brief detail] 
+&lt;br&gt;
+&lt;br&gt;  **Products Discussed:**  (Include 3-4 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+&lt;br&gt;
+&lt;br&gt;  **Next Steps Discussed:**  (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+&lt;br&gt;
+&lt;br&gt;  **Financial Accounts Snapshot:**  (Include 4-5 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+
+10. Generate the summary based on the above instructions using the data found here: {!$Flow:Fetch_Client_Interactions.Prompt} and {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt}  
+ 
+&quot;&quot;&quot;
+Now create a summary
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Client_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Client_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a wealth management advisor working for ANZ Bank and manage a portfolio of ultra high net worth clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Limit bullet points to 4-5 per section for readability.  
+7. Keep each bullet under 20 words, focusing on essential details.  
+8. Summarise insights rather than listing every detail.  
+9. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+&lt;br&gt;
+**Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] 
+&lt;br&gt;
+**Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] 
+&lt;br&gt;
+**Key Discussion Points:**  (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  
+• [Main topic] – [Brief detail] 
+&lt;br&gt;
+ **Products Discussed:**  (Include 3-4 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+&lt;br&gt;
+ **Next Steps Discussed:**  (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+&lt;br&gt;
+ **Financial Accounts Snapshot:**  (Include 4-5 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+
+10. Generate the summary based on the above instructions using the data found here: {!$Flow:Fetch_Client_Interactions.Prompt} and {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt}  
+ 
+&quot;&quot;&quot;
+Now create a summary
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Client_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Client_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a wealth management advisor working for ANZ Bank and manage a portfolio of ultra high net worth clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line**  
+6. Limit bullet points to 4-5 per section for readability.  
+7. Keep each bullet under 20 words, focusing on essential details.  
+8. Summarise insights rather than listing every detail.  
+9. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+&lt;br&gt;
+**Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] 
+&lt;br&gt;
+**Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] 
+&lt;br&gt;
+**Key Discussion Points:**  (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  
+• [Main topic] – [Brief detail] 
+&lt;br&gt;
+ **Products Discussed:**  (Include 3-4 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+&lt;br&gt;
+ **Next Steps Discussed:**  (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+&lt;br&gt;
+ **Financial Accounts Snapshot:**  (Include 4-5 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+
+10. Generate the summary based on the above instructions using the data found here: {!$Flow:Fetch_Client_Interactions.Prompt} and {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt}  
+ 
+&quot;&quot;&quot;
+Now create a summary
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Client_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Client_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_5</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a wealth management advisor working for ANZ Bank and manage a portfolio of ultra high net worth clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Include products like Loan, Investment Accounts, Treasury &amp; Payment Services in the Financial Accounts Snapshot section.
+7. Keep each bullet under 20 words, focusing on essential details.  
+8. Summarise insights rather than listing every detail.  
+9. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+
+&lt;br&gt;**Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] 
+
+&lt;br&gt;**Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] 
+
+&lt;br&gt;**Key Discussion Points:** (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  
+• [Main topic] – [Brief detail] 
+
+&lt;br&gt;**Products Discussed:** (Include 3-4 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+
+&lt;br&gt;**Next Steps Discussed:** (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+
+&lt;br&gt;**Financial Accounts Snapshot:** (Include 4-5 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+
+10. Generate the summary based on the above instructions using the data found here: {!$Flow:Interactions_Summary.Prompt} and {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt}  
+ 
+&quot;&quot;&quot;
+Now create a summary
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Interactions_Summary</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Interactions_Summary</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_6</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a commercial bank Relationship Manager working for ANZ Bank and manage a portfolio of small and medium business clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Keep each bullet under 20 words, focusing on essential details.  
+7. Summarise insights rather than listing every detail.  
+8. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+
+&lt;br&gt;**Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] 
+
+&lt;br&gt;**Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] 
+
+&lt;br&gt;**Key Discussion Points:** (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  
+• [Main topic] – [Brief detail] 
+• [Main topic] – [Brief detail] 
+
+&lt;br&gt;**Products Discussed:** (Include 3-4 bullets and keep the Product Name in Bold)
+Only use data from {!$Flow:Fetch_Client_Interactions.Prompt}
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+
+&lt;br&gt;**Next Steps Discussed:** (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+• [Action Item] – [Responsible Party/Deadline] 
+
+&lt;br&gt;**Financial Accounts Snapshot:** (Include 3-4 bullets and keep the Financial Account in Bold)
+Only use data from {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt}
+• [Financial Account] – [Key detail]  
+• [Financial Account] – [Key detail] 
+• [Financial Account] – [Key detail]  
+
+9. Generate the summary based on the above instructions using the data found here: {!$Flow:Fetch_Client_Interactions.Prompt}
+10. Ensure that Only the data from {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt} is used for the Financial Account Snapshot section.
+&quot;&quot;&quot;
+Now create a summary
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://Fetch_Client_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Client_Interactions</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_10</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a wealth management advisor working for ANZ Bank and manage a portfolio of ultra high net worth clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Keep each bullet under 20 words, focusing on essential details.  
+7. Summarise insights rather than listing every detail.  
+8. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+
+&lt;br&gt;**Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] 
+
+&lt;br&gt;**Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] 
+
+&lt;br&gt;**Key Discussion Points:** (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  
+• [Main topic] – [Brief detail] 
+• [Main topic] – [Brief detail] 
+
+&lt;br&gt;**Products Discussed:** (Include 3-4 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+
+&lt;br&gt;**Next Steps Discussed:** (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+• [Action Item] – [Responsible Party/Deadline] 
+
+&lt;br&gt;**Key Business Details (A-Z Review):** (Summarize key business details in three concise bullet points extracted from the A-Z Review data.) 
+• [Summary Point 1 from A-Z Review] 
+• [Summary Point 2 from A-Z Review] 
+• [Summary Point 3 from A-Z Review]
+
+&lt;br&gt;**Financial Accounts Snapshot:** (Include 4-5 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail]  
+
+9. Generate the summary based on the above instructions using the data found here: {!$Flow:Fetch_Client_Interactions.Prompt}
+10. Ensure that only the data from {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt} is used for the Financial Account Snapshot section.
+&quot;&quot;&quot;
+Now create a summary
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Client_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Client_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_11</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a wealth management advisor working for ANZ Bank and manage a portfolio of ultra high net worth clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Keep each bullet under 20 words, focusing on essential details.  
+7. Summarise insights rather than listing every detail.  
+8. Structure the summary with the following main sections:
+9. Use Only data from {!$Flow:Fetch_Client_Interactions.Prompt} for the following sections
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+
+&lt;br&gt;**Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] 
+
+&lt;br&gt;**Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] 
+
+&lt;br&gt;**Key Discussion Points:** (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  
+• [Main topic] – [Brief detail] 
+• [Main topic] – [Brief detail] 
+
+&lt;br&gt;**Products Discussed:** (Include 3-4 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+
+&lt;br&gt;**Next Steps Discussed:** (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+• [Action Item] – [Responsible Party/Deadline] 
+
+ 10. Use only the data from {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt} for the following Financial Account Snapshot section.
+
+&lt;br&gt;**Financial Accounts Snapshot:** (Include 4-5 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail]  
+
+11. Generate the appropriate summary based on the above instructions.
+&quot;&quot;&quot;
+Now create a summary
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Client_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Client_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_12</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a commercial bank Relationship Manager working for ANZ Bank and manage a portfolio of small and medium business clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Keep each bullet under 20 words, focusing on essential details.  
+7. Summarise insights rather than listing every detail.  
+8. ONLY use the data from {!$Flow:Fetch_Client_Interactions.Prompt} to generate the summary for all sections up to and including &quot;Next Steps Discussed.&quot;
+9. Ensure that ONLY the data from {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt} is used for the &quot;Financial Account Snapshot&quot; section to give details about the existing Financial Accounts.
+8. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+
+&lt;br&gt;**Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] 
+
+&lt;br&gt;**Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] 
+
+&lt;br&gt;**Key Discussion Points:** (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  
+• [Main topic] – [Brief detail] 
+• [Main topic] – [Brief detail] 
+
+&lt;br&gt;**Products Discussed:** (Ensure to ONLY use data from {!$Flow:Fetch_Client_Interactions.Prompt} and include 3-4 bullets, keeping the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+
+Customer Vulnerabilities (Include any vulnerability found in customer across interactions defining a flag on customer profile and tone)
+Flag -  
+
+
+&lt;br&gt;**Next Steps Discussed:** (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+• [Action Item] – [Responsible Party/Deadline] 
+
+&lt;br&gt;**Financial Accounts Snapshot:** (Ensure to ONLY use data from {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt} and include 3-4 bullets, keeping the Financial Account in Bold)
+• [Financial Account] – [Key detail]  
+• [Financial Account] – [Key detail] 
+• [Financial Account] – [Key detail]  
+
+&quot;&quot;&quot;
+Now create a summary
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Client_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Client_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_13</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a wealth management advisor working for ANZ Bank and manage a portfolio of ultra high net worth clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Keep each bullet under 20 words, focusing on essential details.  
+7. Summarise insights rather than listing every detail.  
+8. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+
+&lt;br&gt;**Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] 
+
+&lt;br&gt;**Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] 
+
+&lt;br&gt;**Key Discussion Points:** (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  
+• [Main topic] – [Brief detail] 
+• [Main topic] – [Brief detail] 
+
+&lt;br&gt;**Pipeline Deals:** (Include 3-4 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+
+&lt;br&gt;**Next Steps Discussed:** (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+• [Action Item] – [Responsible Party/Deadline] 
+
+&lt;br&gt;**Key Business Details (A-Z Review):** (Summarize key business details in three concise bullet points extracted from the A-Z Review data.) 
+• [Summary Point 1 from A-Z Review] 
+• [Summary Point 2 from A-Z Review] 
+• [Summary Point 3 from A-Z Review]
+
+&lt;br&gt;**Financial Accounts Snapshot:** (Include 4-5 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail]  
+
+9. Generate the summary based on the above instructions using the data found here: {!$Flow:Fetch_Client_Interactions.Prompt}
+10. Ensure that only the data from {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt} is used for the Financial Account Snapshot section.
+&quot;&quot;&quot;
+Now create a summary
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Client_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Client_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_14</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a wealth management advisor working for ANZ Bank and manage a portfolio of ultra high net worth clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Keep each bullet under 20 words, focusing on essential details.  
+7. Summarise insights rather than listing every detail.  
+8. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+
+&lt;br&gt;**Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] 
+
+&lt;br&gt;**Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] 
+
+&lt;br&gt;**Key Discussion Points:** (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  ([Interaction Record Link])
+• [Main topic] – [Brief detail] 
+• [Main topic] – [Brief detail] 
+
+&lt;br&gt;**Pipeline Deals:** (Include 3-4 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+
+&lt;br&gt;**Next Steps Discussed:** (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+• [Action Item] – [Responsible Party/Deadline] 
+
+&lt;br&gt;**Key Business Details (A-Z Review):** (Summarize key business details in three concise bullet points extracted from the A-Z Review data.) 
+• [Summary Point 1 from A-Z Review] 
+• [Summary Point 2 from A-Z Review] 
+• [Summary Point 3 from A-Z Review]
+
+&lt;br&gt;**Financial Accounts Snapshot:** (Include 4-5 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail]  
+
+9. Generate the summary based on the above instructions using the data found here: {!$Flow:Fetch_Client_Interactions.Prompt}
+10. Ensure that only the data from {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt} is used for the Financial Account Snapshot section.
+11. **For each bullet point in the &quot;Key Discussion Points&quot;, &quot;Pipeline Deals&quot;, and &quot;Next Steps Discussed&quot; sections, include a clickable link to the source Interaction record in the format: ([Interaction Record Link]).**
+12. **Use the Interaction Id to construct the link using the following pattern: https://[your-salesforce-instance]/lightning/r/Interaction/[Interaction Id]/view**
+&quot;&quot;&quot;
+Now create a summary
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Client_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Client_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_15</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a wealth management advisor working for ANZ Bank and manage a portfolio of ultra high net worth clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Keep each bullet under 20 words, focusing on essential details.  
+7. Summarise insights rather than listing every detail.  
+8. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+
+&lt;br&gt;**Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] 
+
+&lt;br&gt;**Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] 
+
+&lt;br&gt;**Key Discussion Points:** (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  ([Source Interaction])
+• [Main topic] – [Brief detail] 
+• [Main topic] – [Brief detail] 
+
+&lt;br&gt;**Pipeline Deals:** (Include 3-4 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+
+&lt;br&gt;**Next Steps Discussed:** (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+• [Action Item] – [Responsible Party/Deadline] 
+
+&lt;br&gt;**Key Business Details (A-Z Review):** (Summarise key business details in three concise bullet points extracted from the A-Z Review data.) 
+• [Summary Point 1 from A-Z Review] 
+• [Summary Point 2 from A-Z Review] 
+• [Summary Point 3 from A-Z Review]
+
+&lt;br&gt;**Financial Accounts Snapshot:** (Include 4-5 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail]  
+
+9. Generate the summary based on the above instructions using the data found here: {!$Flow:Fetch_Client_Interactions.Prompt}
+10. Ensure that only the data from {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt} is used for the Financial Account Snapshot section.
+11. **For each bullet point in the &quot;Key Discussion Points&quot;, &quot;Pipeline Deals&quot;, and &quot;Next Steps Discussed&quot; sections, include a clickable link to the source Interaction record in the format: ([Source Interaction]).**
+12. Use the Interaction Id to construct the link using the following pattern: https://storm-5a2f6315e18d10.lightning.force.com/InteractionId, replacing the interaction Id with the actual Interaction Record Id.
+&quot;&quot;&quot;
+Now create a summary
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Client_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Client_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_16</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a wealth management advisor working for ANZ Bank and manage a portfolio of ultra high net worth clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Keep each bullet under 20 words, focusing on essential details.  
+7. Summarise insights rather than listing every detail.  
+8. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+
+&lt;br&gt;**Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] 
+
+&lt;br&gt;**Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] 
+
+&lt;br&gt;**Key Discussion Points:** (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  [Reference]
+• [Main topic] – [Brief detail] 
+• [Main topic] – [Brief detail] 
+
+&lt;br&gt;**Pipeline Deals:** (Include 3-4 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+
+&lt;br&gt;**Next Steps Discussed:** (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+• [Action Item] – [Responsible Party/Deadline] 
+
+&lt;br&gt;**Key Business Details (A-Z Review):** (Summarise key business details in three concise bullet points extracted from the A-Z Review data.) 
+• [Summary Point 1 from A-Z Review] 
+• [Summary Point 2 from A-Z Review] 
+• [Summary Point 3 from A-Z Review]
+
+&lt;br&gt;**Financial Accounts Snapshot:** (Include 4-5 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail]  
+
+9. Generate the summary based on the above instructions using the data found here: {!$Flow:Fetch_Client_Interactions.Prompt}
+10. Ensure that only the data from {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt} is used for the Financial Account Snapshot section.
+11. **For each bullet point in the &quot;Key Discussion Points&quot;, &quot;Pipeline Deals&quot;, and &quot;Next Steps Discussed&quot; sections, include a clickable link to the source Interaction record in the format: [Reference].**
+12. Use the Interaction Id to construct the link using the following pattern: https://storm-5a2f6315e18d10.lightning.force.com/InteractionId, replacing the interaction Id with the actual Interaction Record Id.
+&quot;&quot;&quot;
+Now create a summary
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Client_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Client_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_18</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a commercial bank Relationship Manager working for ANZ Bank and manage a portfolio of small and medium business clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Keep each bullet under 20 words, focusing on essential details.  
+7. Summarise insights rather than listing every detail.  
+8. STRICTLY use the data from {!$Flow:Fetch_Client_Interactions.Prompt} to generate the summary for all sections up to and including &quot;Next Steps Discussed.&quot;
+9. STRICTLY ensure that ONLY the data from {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt} is used for the &quot;Financial Account Snapshot&quot; section to give details about the existing Financial Accounts.
+10. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+
+&lt;br&gt;**Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] 
+
+&lt;br&gt;**Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] 
+
+&lt;br&gt;**Key Discussion Points:** (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  [Reference]
+• [Main topic] – [Brief detail] 
+• [Main topic] – [Brief detail] 
+
+&lt;br&gt;**Products Discussed:** (Ensure to ONLY use data from {!$Flow:Fetch_Client_Interactions.Prompt} and include 3-4 bullets, keeping the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+
+&lt;br&gt;**Next Steps Discussed:** (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+• [Action Item] – [Responsible Party/Deadline] 
+
+&lt;br&gt;**Financial Accounts Snapshot:** (Ensure to ONLY use data from {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt} and include 3-4 bullets, keeping the Financial Account in Bold)
+• [Financial Account] – [Key detail]  
+• [Financial Account] – [Key detail] 
+• [Financial Account] – [Key detail]  
+11. **For each bullet point in the &quot;Key Discussion Points&quot;, &quot;Pipeline Deals&quot;, and &quot;Next Steps Discussed&quot; sections, include a clickable link to the source Interaction record in the format: [Reference].**
+12. Use the Interaction Id to construct the link using the following pattern: https://storm-5a2f6315e18d10.lightning.force.com/InteractionId, replacing the interaction Id with the actual Interaction Record Id.
+&quot;&quot;&quot;
+Now create a summary
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Client_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Client_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_17</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a wealth management advisor working for ANZ Bank and manage a portfolio of ultra high net worth clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Keep each bullet under 20 words, focusing on essential details.  
+7. Summarise insights rather than listing every detail.  
+8. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+
+&lt;br&gt;**Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] 
+
+&lt;br&gt;**Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] 
+
+&lt;br&gt;**Key Discussion Points:** (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  [Reference]
+• [Main topic] – [Brief detail] 
+• [Main topic] – [Brief detail] 
+
+&lt;br&gt;**Pipeline Deals:** (Include 3-4 bullets and keep the Opportunity in Bold)
+• [Opportunity] – [Key detail]  
+• [Opportunity] – [Key detail] 
+• [Opportunity] – [Key detail]  
+
+&lt;br&gt;**Next Steps Discussed:** (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+• [Action Item] – [Responsible Party/Deadline] 
+
+&lt;br&gt;**Key Business Details (A-Z Review):** (Summarise key business details in three concise bullet points extracted from the A-Z Review data.) 
+• [Summary Point 1 from A-Z Review] 
+• [Summary Point 2 from A-Z Review] 
+• [Summary Point 3 from A-Z Review]
+
+&lt;br&gt;**Financial Accounts Snapshot:** (Include 4-5 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail]  
+
+9. Generate the summary based on the above instructions using the data found here: {!$Flow:Fetch_Client_Interactions.Prompt}
+10. Ensure that only the data from {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt} is used for the Financial Account Snapshot section.
+11. **For each bullet point in the &quot;Key Discussion Points&quot;, &quot;Pipeline Deals&quot;, and &quot;Next Steps Discussed&quot; sections, include a clickable link to the Reference record in the format: ([Reference]).**
+12. Use the Interaction Id to construct the link using the following pattern: https://storm-5a2f6315e18d10.lightning.force.com/InteractionId, replacing the InteractionId with the actual Interaction Record Id.
+&quot;&quot;&quot;
+Now create a summary
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Client_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Client_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_19</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a wealth management advisor working for ANZ Bank and manage a portfolio of ultra high net worth clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Keep each bullet under 20 words, focusing on essential details.  
+7. Summarise insights rather than listing every detail.  
+8. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+
+&lt;br&gt;**Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] 
+
+&lt;br&gt;**Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] 
+
+&lt;br&gt;**Key Discussion Points:** (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  [Source]
+• [Main topic] – [Brief detail] 
+• [Main topic] – [Brief detail] 
+
+&lt;br&gt;**Pipeline Deals:** (Include 3-4 bullets and keep the Opportunity in Bold)
+• [Opportunity] – [Key detail]  
+• [Opportunity] – [Key detail] 
+• [Opportunity] – [Key detail]  
+
+&lt;br&gt;**Next Steps Discussed:** (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+• [Action Item] – [Responsible Party/Deadline] 
+
+&lt;br&gt;**Key Business Details (A-Z Review):** (Summarise key business details in three concise bullet points extracted from the A-Z Review data.) 
+• [Summary Point 1 from A-Z Review] 
+• [Summary Point 2 from A-Z Review] 
+• [Summary Point 3 from A-Z Review]
+
+&lt;br&gt;**Financial Accounts Snapshot:** (Include 4-5 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail]  
+
+9. Generate the summary based on the above instructions using the data found here: {!$Flow:Fetch_Client_Interactions.Prompt}
+10. Ensure that only the data from {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt} is used for the Financial Account Snapshot section.
+11. **For each bullet point in the &quot;Key Discussion Points&quot;, &quot;Pipeline Deals&quot;, and &quot;Next Steps Discussed&quot; sections, include a clickable link to the source Interaction record in the format: ([Source]).**
+12. Use the Interaction Id to construct the link using the following pattern: https://storm-5a2f6315e18d10.lightning.force.com/InteractionId, replacing the InteractionId with the actual Interaction Record Id.
+&quot;&quot;&quot;
+Now create a summary
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Client_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Client_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_20</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a wealth management advisor working for ANZ Bank and manage a portfolio of ultra high net worth clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Keep each bullet under 20 words, focusing on essential details.  
+7. Summarise insights rather than listing every detail.  
+8. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+
+&lt;br&gt;**Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] 
+
+&lt;br&gt;**Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] 
+
+&lt;br&gt;**Key Discussion Points:** (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  ([Source])
+• [Main topic] – [Brief detail] 
+• [Main topic] – [Brief detail] 
+
+&lt;br&gt;**Pipeline Deals:** (Include 3-4 bullets and keep the Opportunity in Bold)
+• [Opportunity] – [Key detail]  
+• [Opportunity] – [Key detail] 
+• [Opportunity] – [Key detail]  
+
+&lt;br&gt;**Next Steps Discussed:** (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+• [Action Item] – [Responsible Party/Deadline] 
+
+&lt;br&gt;**Key Business Details (A-Z Review):** (Summarise key business details in three concise bullet points extracted from the A-Z Review data.) 
+• [Summary Point 1 from A-Z Review] 
+• [Summary Point 2 from A-Z Review] 
+• [Summary Point 3 from A-Z Review]
+
+&lt;br&gt;**Financial Accounts Snapshot:** (Include 4-5 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail]  
+
+9. Generate the summary based on the above instructions using the data found here: {!$Flow:Fetch_Client_Interactions.Prompt}
+10. Ensure that only the data from {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt} is used for the Financial Account Snapshot section.
+11. **For each bullet point in the &quot;Key Discussion Points&quot;, &quot;Pipeline Deals&quot;, and &quot;Next Steps Discussed&quot; sections, include a clickable link to the source Interaction record in the format: ([Source]).**
+12. Use the Interaction Id to construct the link using the following pattern: https://storm-5a2f6315e18d10.lightning.force.com/InteractionId, replacing the InteractionId with the actual Interaction Record Id.
+&quot;&quot;&quot;
+Now create a summary
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Client_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Client_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_21</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a wealth management advisor working for ANZ Bank and manage a portfolio of ultra high net worth clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Keep each bullet under 20 words, focusing on essential details.  
+7. Summarise insights rather than listing every detail.  
+8. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+
+&lt;br&gt;**Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] 
+
+&lt;br&gt;**Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] 
+
+&lt;br&gt;**Key Discussion Points:** (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  ([Source])
+• [Main topic] – [Brief detail] 
+• [Main topic] – [Brief detail] 
+
+&lt;br&gt;**Pipeline Deals:** (Include 3-4 bullets and keep the Opportunity in Bold)
+• [Opportunity] – [Key detail]  
+• [Opportunity] – [Key detail] 
+• [Opportunity] – [Key detail]  
+
+&lt;br&gt;**Next Steps Discussed:** (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+• [Action Item] – [Responsible Party/Deadline] 
+
+&lt;br&gt;**Key Business Details (A-Z Review):** (Summarise key business details in three concise bullet points extracted from the A-Z Review data.) 
+• [Summary Point 1 from A-Z Review] 
+• [Summary Point 2 from A-Z Review] 
+• [Summary Point 3 from A-Z Review]
+
+&lt;br&gt;**Financial Accounts Snapshot:** (Include 4-5 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail]  
+
+9. Generate the summary based on the above instructions using the data found here: {!$Flow:Fetch_Client_Interactions.Prompt}
+10. Ensure that only the data from {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt} is used for the Financial Account Snapshot section.
+11. **For each bullet point in the &quot;Key Discussion Points&quot;, &quot;Pipeline Deals&quot;, and &quot;Next Steps Discussed&quot; sections, include a clickable link to the source Interaction record in the format: ([Source]).**
+12. Use the Interaction Id to construct the link using the following pattern: https://storm-5a2f6315e18d10.lightning.force.com/InteractionId, replacing the InteractionId with the actual Interaction Record Id.
+&quot;&quot;&quot;
+Now create a summary
+FORMATTING GUIDELINES;
+ &quot;&quot;&quot;
+1. All output must be valid HTML
+2. Each section name should be in bold and inline in the paragraph:  &quot;&lt;strong&gt;Credit Assessment&lt;/strong&gt; The customer...&quot;.
+3. Any numerical values should be bold, using &lt;strong&gt; tag.
+4. When appropriate, add emphasis to certain pieces of text, up to 2 or 3 words at a time, by itaicizing, using &lt;em&gt; tag, adjective + noun or verb combinations: &quot;&lt;em&gt;almost always&lt;/em&gt;&quot;.
+5. At the bottom of the response include citations formatted using an &lt;a&gt; tag. 
+&quot;&quot;&quot;
+
+HTML GENERATION GUIDELINES:
+&quot;&quot;&quot;
+1. no tags for paragraphs
+2. &lt;a&gt; for links
+3. &lt;strong&gt; for bolded content
+4. &lt;em&gt; for italicized content
+5. Don&apos;t use any heading tags
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Client_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Client_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_22</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a wealth management advisor working for ANZ Bank and manage a portfolio of ultra high net worth clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Keep each bullet under 20 words, focusing on essential details.  
+7. Summarise insights rather than listing every detail.  
+8. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+
+&lt;br&gt;**Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] 
+
+&lt;br&gt;**Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] 
+
+&lt;br&gt;**Key Discussion Points:** (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  ([Source])
+• [Main topic] – [Brief detail] 
+• [Main topic] – [Brief detail] 
+
+&lt;br&gt;**Pipeline Deals:** (Include 3-4 bullets and keep the Opportunity in Bold)
+• [Opportunity] – [Key detail]  
+• [Opportunity] – [Key detail] 
+• [Opportunity] – [Key detail]  
+
+&lt;br&gt;**Next Steps Discussed:** (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+• [Action Item] – [Responsible Party/Deadline] 
+
+&lt;br&gt;**Key Business Details (A-Z Review):** (Summarise key business details in three concise bullet points extracted from the A-Z Review data.) 
+• [Summary Point 1 from A-Z Review] 
+• [Summary Point 2 from A-Z Review] 
+• [Summary Point 3 from A-Z Review]
+
+&lt;br&gt;**Financial Accounts Snapshot:** (Include 4-5 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail]  
+
+9. Generate the summary based on the above instructions using the data found here: {!$Flow:Fetch_Client_Interactions.Prompt}
+10. Ensure that only the data from {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt} is used for the Financial Account Snapshot section.
+11. **For each bullet point in the &quot;Key Discussion Points&quot;, &quot;Pipeline Deals&quot;, and &quot;Next Steps Discussed&quot; sections, include a clickable link to the source Interaction record in the format: ([Source]).**
+12. Use the Interaction Id to construct the link using the following pattern: /InteractionId, replacing the InteractionId with the actual Interaction Record Id.
+&quot;&quot;&quot;
+Now create a summary
+FORMATTING GUIDELINES;
+ &quot;&quot;&quot;
+1. All output must be valid HTML
+2. Each section name should be in bold and inline in the paragraph:  &quot;&lt;strong&gt;Credit Assessment&lt;/strong&gt; The customer...&quot;.
+3. Any numerical values should be bold, using &lt;strong&gt; tag.
+4. When appropriate, add emphasis to certain pieces of text, up to 2 or 3 words at a time, by itaicizing, using &lt;em&gt; tag, adjective + noun or verb combinations: &quot;&lt;em&gt;almost always&lt;/em&gt;&quot;.
+&quot;&quot;&quot;
+
+HTML GENERATION GUIDELINES:
+&quot;&quot;&quot;
+1. no tags for paragraphs
+2. &lt;a&gt; for links
+3. &lt;strong&gt; for bolded content
+4. &lt;em&gt; for italicised content
+5. Don&apos;t use any heading tags
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Client_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Client_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_23</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a wealth management advisor working for ANZ Bank and manage a portfolio of ultra high net worth clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Keep each bullet under 20 words, focusing on essential details.  
+7. Summarise insights rather than listing every detail.  
+8. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+
+&lt;br&gt;**Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] 
+
+&lt;br&gt;**Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] 
+
+&lt;br&gt;**Key Discussion Points:** (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  (&lt;a href=&quot;/[Source]&quot;&gt;Source&lt;/a&gt;)
+• [Main topic] – [Brief detail] 
+• [Main topic] – [Brief detail] 
+
+&lt;br&gt;**Pipeline Deals:** (Include 3-4 bullets and keep the Opportunity in Bold)
+• [Opportunity] – [Key detail]  
+• [Opportunity] – [Key detail] 
+• [Opportunity] – [Key detail]  
+
+&lt;br&gt;**Next Steps Discussed:** (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+• [Action Item] – [Responsible Party/Deadline] 
+
+&lt;br&gt;**Key Business Details (A-Z Review):** (Summarise key business details in three concise bullet points extracted from the A-Z Review data.) 
+• [Summary Point 1 from A-Z Review] 
+• [Summary Point 2 from A-Z Review] 
+• [Summary Point 3 from A-Z Review]
+
+&lt;br&gt;**Financial Accounts Snapshot:** (Include 4-5 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail]  
+
+9. Generate the summary based on the above instructions using the data found here: {!$Flow:Fetch_Client_Interactions.Prompt}
+10. Ensure that only the data from {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt} is used for the Financial Account Snapshot section.
+11. **For each bullet point in the &quot;Key Discussion Points&quot;, &quot;Pipeline Deals&quot;, and &quot;Next Steps Discussed&quot; sections, replace &quot;[Source]&quot; DIRECTLY with the Interaction Record Id from the provided data. Do not modify or interpret the ID.** 
+12. Use the Interaction Id to construct the link using the following pattern: &lt;a href=&quot;/InteractionId&quot;&gt;Source&lt;/a&gt;, replacing &quot;InteractionId&quot; with the actual Interaction Record Id. 
+13. Ensure that all links are created using the &lt;a&gt; tag as shown above.
+&quot;&quot;&quot;
+Now create a summary
+FORMATTING GUIDELINES;
+ &quot;&quot;&quot;
+1. All output must be valid HTML
+2. Each section name should be in bold and inline in the paragraph:  &quot;&lt;strong&gt;Credit Assessment&lt;/strong&gt; The customer...&quot;.
+3. Any numerical values should be bold, using &lt;strong&gt; tag.
+4. When appropriate, add emphasis to certain pieces of text, up to 2 or 3 words at a time, by itaicizing, using &lt;em&gt; tag, adjective + noun or verb combinations: &quot;&lt;em&gt;almost always&lt;/em&gt;&quot;.
+&quot;&quot;&quot;
+
+HTML GENERATION GUIDELINES:
+&quot;&quot;&quot;
+1. no tags for paragraphs
+2. &lt;a&gt; for links
+3. &lt;strong&gt; for bolded content
+4. &lt;em&gt; for italicised content
+5. Don&apos;t use any heading tags
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Client_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Client_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_24</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a wealth management advisor working for ANZ Bank and manage a portfolio of ultra high net worth clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Keep each bullet under 20 words, focusing on essential details.  
+7. Summarise insights rather than listing every detail.  
+8. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+
+&lt;br&gt;**Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] 
+
+&lt;br&gt;**Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] 
+
+&lt;br&gt;**Key Discussion Points:** (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  (&lt;a href=&quot;/[Source]&quot;&gt;Source&lt;/a&gt;)
+• [Main topic] – [Brief detail] 
+• [Main topic] – [Brief detail] 
+
+&lt;br&gt;**Pipeline Deals:** (Include 3-4 bullets and keep the Opportunity in Bold)
+• [Opportunity] – [Key detail]  
+• [Opportunity] – [Key detail] 
+• [Opportunity] – [Key detail]  
+
+&lt;br&gt;**Next Steps Discussed:** (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+• [Action Item] – [Responsible Party/Deadline] 
+
+&lt;br&gt;**Key Business Details (A-Z Review):** (Summarise key business details in three concise bullet points extracted from the A-Z Review data.) 
+• [Summary Point 1 from A-Z Review] 
+• [Summary Point 2 from A-Z Review] 
+• [Summary Point 3 from A-Z Review]
+
+&lt;br&gt;**Financial Accounts Snapshot:** (Include 4-5 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail]  
+
+9. Generate the summary based on the above instructions using the data found here: {!$Flow:Fetch_Client_Interactions.Prompt}
+10. Ensure that only the data from {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt} is used for the Financial Account Snapshot section.
+11. **For each bullet point in the &quot;Key Discussion Points&quot;, &quot;Pipeline Deals&quot;, and &quot;Next Steps Discussed&quot; sections, STRICTLY replace &quot;[Source]&quot; DIRECTLY with the Interaction Record Id from the provided data. Do not modify or interpret the ID.** 
+12. Use the Interaction Id to construct the link using the following pattern: &lt;a href=&quot;/InteractionId&quot;&gt;Source&lt;/a&gt;, replacing &quot;InteractionId&quot; with the actual Interaction Record Id. 
+13. Ensure that all links are created using the &lt;a&gt; tag as shown above.
+&quot;&quot;&quot;
+Now create a summary
+FORMATTING GUIDELINES;
+ &quot;&quot;&quot;
+1. All output must be valid HTML
+2. Each section name should be in bold and inline in the paragraph:  &quot;&lt;strong&gt;Credit Assessment&lt;/strong&gt; The customer...&quot;.
+3. Any numerical values should be bold, using &lt;strong&gt; tag.
+4. When appropriate, add emphasis to certain pieces of text, up to 2 or 3 words at a time, by itaicizing, using &lt;em&gt; tag, adjective + noun or verb combinations: &quot;&lt;em&gt;almost always&lt;/em&gt;&quot;.
+&quot;&quot;&quot;
+
+HTML GENERATION GUIDELINES:
+&quot;&quot;&quot;
+1. no tags for paragraphs
+2. &lt;a&gt; for links
+3. &lt;strong&gt; for bolded content
+4. &lt;em&gt; for italicised content
+5. Don&apos;t use any heading tags
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Client_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Client_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_25</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a wealth management advisor working for ANZ Bank and manage a portfolio of ultra high net worth clients. You are tasked with creating a short summary of all client interactions with {!$Input:Account.Name}to be used by yourself for an upcoming meeting with them. When you do not have sufficient information, you must choose the unknown option, rather than making assumptions based on any stereotypes.
+
+When I ask you to summarise the interactions, you must strictly follow my instructions below.
+
+Instructions:
+
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+2. Extract the Total Number of Interactions from the flow.
+3. Summarise all interactions in a user-friendly, readable format keeping all the main sections in **Bold**.  
+4. Use clear, concise, and straightforward language using the active voice and strictly avoid the use of filler words, phrases, and redundant language.  
+5. **Ensure each bullet point appears on a new line and add &quot;&lt;br&gt;&quot; at the end of the last bullet point of each section to maintain spacing.**  
+6. Keep each bullet under 20 words, focusing on essential details.  
+7. Summarise insights rather than listing every detail.  
+8. Structure the summary with the following main sections:  
+
+**Number of Interactions in the Last 12 Months:**  
+• **Total:** [Number] 
+
+&lt;br&gt;**Most Recent Interaction:**  
+• [1 sentence brief summary of the latest interaction including the interaction date and type. Highlight the date and type in **Bold**] 
+
+&lt;br&gt;**Tone Across Interactions:**  
+• [1 sentence brief summary of the tone across all interactions (Highlight the adjectives of the tone in **Bold**)] 
+
+&lt;br&gt;**Key Discussion Points:** (Include 3-4 bullets and keep the Main topic in Bold)
+• [Main topic] – [Brief detail]  (&lt;a href=&quot;/[Source]&quot;&gt;Source&lt;/a&gt;)
+• [Main topic] – [Brief detail] 
+• [Main topic] – [Brief detail] 
+
+&lt;br&gt;**Pipeline Deals:** (Include 3-4 bullets and keep the Opportunity in Bold)
+• [Opportunity] – [Key detail]  
+• [Opportunity] – [Key detail] 
+• [Opportunity] – [Key detail]  
+
+&lt;br&gt;**Next Steps Discussed:** (Include 3-4 bullets and keep the Action Item in Bold)
+• [Action Item] – [Responsible Party/Deadline]  
+• [Action Item] – [Responsible Party/Deadline] 
+• [Action Item] – [Responsible Party/Deadline] 
+
+&lt;br&gt;**Key Business Details (A-Z Review):** (Summarise key business details in three concise bullet points extracted from the A-Z Review data.) 
+• [Summary Point 1 from A-Z Review] 
+• [Summary Point 2 from A-Z Review] 
+• [Summary Point 3 from A-Z Review]
+
+&lt;br&gt;**Financial Accounts Snapshot:** (Include 4-5 bullets and keep the Product Name in Bold)
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail] 
+• [Product Name] – [Key detail]  
+• [Product Name] – [Key detail]  
+
+9. Generate the summary based on the above instructions using the data found here: {!$Flow:Fetch_Client_Interactions.Prompt}
+10. Ensure that only the data from {!$Flow:FINS_Prompt_Get_Financial_Accounts.Prompt} is used for the Financial Account Snapshot section.
+11. **For each bullet point in the &quot;Key Discussion Points&quot;, &quot;Pipeline Deals&quot;, and &quot;Next Steps Discussed&quot; sections, STRICTLY replace &quot;[Source]&quot; DIRECTLY with the Interaction Record Id from the provided data. Do not modify or interpret the ID.** 
+12. Use the Interaction Id to construct the link using the following pattern: &lt;a href=&quot;/InteractionId&quot;&gt;Source&lt;/a&gt;, replacing &quot;InteractionId&quot; with the actual Interaction Record Id. 
+13. Ensure that all links are created using the &lt;a&gt; tag as shown above.
+&quot;&quot;&quot;
+Now create a summary
+FORMATTING GUIDELINES;
+ &quot;&quot;&quot;
+1. All output must be valid HTML
+2. Each section name should be in bold and inline in the paragraph:  &quot;&lt;strong&gt;Credit Assessment&lt;/strong&gt; The customer...&quot;.
+3. Any numerical values should be bold, using &lt;strong&gt; tag.
+4. When appropriate, add emphasis to certain pieces of text, up to 2 or 3 words at a time, by itaicizing, using &lt;em&gt; tag, adjective + noun or verb combinations: &quot;&lt;em&gt;almost always&lt;/em&gt;&quot;.
+&quot;&quot;&quot;
+
+HTML GENERATION GUIDELINES:
+&quot;&quot;&quot;
+1. no tags for paragraphs
+2. &lt;a&gt; for links
+3. &lt;strong&gt; for bolded content
+4. &lt;em&gt; for italicised content
+5. Don&apos;t use any heading tags
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Client_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Client_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://FINS_Prompt_Get_Financial_Accounts</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>RelatedEntity</parameterName>
+                <valueExpression>{!$Input:Account}</valueExpression>
+            </parameters>
+            <referenceName>Flow:FINS_Prompt_Get_Financial_Accounts</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_26</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__fieldCompletion</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

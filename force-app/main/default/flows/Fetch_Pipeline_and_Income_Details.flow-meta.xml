@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Display_contacts</name>
+        <elementSubtype>AddPromptInstructions</elementSubtype>
+        <label>Display contacts</label>
+        <locationX>156</locationX>
+        <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>$Output.Prompt</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>Conatct Name : {!Loop_over_Contacts.Name
+Contact Title : {!Loop_over_Contacts.Title}
+Contact Email :  {!Loop_over_Contacts.Email}
+</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_over_Contacts</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Display_Income_Details</name>
+        <elementSubtype>AddPromptInstructions</elementSubtype>
+        <label>Display Income Details</label>
+        <locationX>264</locationX>
+        <locationY>1658</locationY>
+        <assignmentItems>
+            <assignToReference>$Output.Prompt</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>BS Lending : {!Loop_over_Income_Details.On_BS_Lending__c}
+Customer :  {!Loop_over_Income_Details.Customer__c
+Deposits : {!Loop_over_Income_Details.Deposits__c
+Total Effort Revenue : {!Loop_over_Income_Details.Total_Effort_Revenue__c
+Date: {!Loop_over_Income_Details.Date__c}
+</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_over_Income_Details</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Display_Pipeline_Deals</name>
+        <elementSubtype>AddPromptInstructions</elementSubtype>
+        <label>Display Pipeline Deals</label>
+        <locationX>156</locationX>
+        <locationY>1166</locationY>
+        <assignmentItems>
+            <assignToReference>$Output.Prompt</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>Pipeline Name : {!Loop_over_pipeline_deals.Name}
+Description : {!Loop_over_pipeline_deals.Description}
+Stage: {!Loop_over_pipeline_deals.Stage}
+Mandate Date: {!Loop_over_pipeline_deals.MandatedDate}
+Product: {!Loop_over_pipeline_deals.Product__c}
+Total Deal Value : {!Loop_over_pipeline_deals.FINS_Total_Deal_Value__c}
+Expected Close Date :{!Loop_over_pipeline_deals.ExpectedCloseDate}
+Tenor :  {!Loop_over_pipeline_deals.Tenor__c}
+Result : {!Loop_over_pipeline_deals.Result__c}
+Reason for Result :{!Loop_over_pipeline_deals.Reason_for_result__c}
+Won By : {!Loop_over_pipeline_deals.Won_By__c}
+Actual Close :{!Loop_over_pipeline_deals.Actual_close__c}
+</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_over_pipeline_deals</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Check_Contacts_if_Null</name>
+        <label>Check Contacts if Null</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <defaultConnector>
+            <targetReference>Get_Pipeline_Details</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Null</defaultConnectorLabel>
+        <rules>
+            <name>Check_Contacts</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Contacts</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_over_Contacts</targetReference>
+            </connector>
+            <label>Check Contacts</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Null</name>
+        <label>Check Null</label>
+        <locationX>176</locationX>
+        <locationY>950</locationY>
+        <defaultConnector>
+            <targetReference>Get_Income_Details</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Null</defaultConnectorLabel>
+        <rules>
+            <name>Check_Pipeline_Deals</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Pipeline_Details</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_over_pipeline_deals</targetReference>
+            </connector>
+            <label>Check Pipeline Deals</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Fetch Pipeline and Income Details {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Fetch Contacts, Pipeline Deals &amp; Income Details</label>
+    <loops>
+        <name>Loop_over_Contacts</name>
+        <label>Loop over Contacts</label>
+        <locationX>68</locationX>
+        <locationY>458</locationY>
+        <collectionReference>Get_Contacts</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Display_contacts</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Get_Pipeline_Details</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>Loop_over_Income_Details</name>
+        <label>Loop over Income Details</label>
+        <locationX>176</locationX>
+        <locationY>1550</locationY>
+        <collectionReference>Get_Income_Details</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Display_Income_Details</targetReference>
+        </nextValueConnector>
+    </loops>
+    <loops>
+        <name>Loop_over_pipeline_deals</name>
+        <label>Loop over pipeline deals</label>
+        <locationX>68</locationX>
+        <locationY>1058</locationY>
+        <collectionReference>Get_Pipeline_Details</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Display_Pipeline_Deals</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Get_Income_Details</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>PromptFlow</processType>
+    <recordLookups>
+        <name>Get_Account</name>
+        <label>Get Account</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Contacts</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>input_accRecord.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Contacts</name>
+        <label>Get Contacts</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_Contacts_if_Null</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>input_accRecord.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Income_Details</name>
+        <label>Get Income Details</label>
+        <locationX>176</locationX>
+        <locationY>1442</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_over_Income_Details</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Customer__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>input_accRecord.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Income__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Pipeline_Details</name>
+        <label>Get Pipeline Details</label>
+        <locationX>176</locationX>
+        <locationY>842</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_Null</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>input_accRecord.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>FinancialDeal</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Account</targetReference>
+        </connector>
+        <triggerType>Capability</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>input_accRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+</Flow>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Final_Interactions_Count</name>
+        <elementSubtype>AddPromptInstructions</elementSubtype>
+        <label>Final Interactions Count</label>
+        <locationX>182</locationX>
+        <locationY>650</locationY>
+        <assignmentItems>
+            <assignToReference>$Output.Prompt</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>Total Number of Interactions - {!countInteractions}
+</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Account_Contact_Relationship</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Interactions_Count</name>
+        <label>Interactions Count</label>
+        <locationX>270</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>countInteractions</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Send_Interactions_Data</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Send_Contact_Relationships</name>
+        <elementSubtype>AddPromptInstructions</elementSubtype>
+        <label>Send Contact Relationships</label>
+        <locationX>138</locationX>
+        <locationY>1082</locationY>
+        <assignmentItems>
+            <assignToReference>$Output.Prompt</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>{!Loop_Through_Relationships.Roles}
+{!Loop_Through_Relationships.Contact.Name}
+</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Relationships</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Send_Interactions_Data</name>
+        <elementSubtype>AddPromptInstructions</elementSubtype>
+        <label>Send Interactions Data</label>
+        <locationX>270</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>$Output.Prompt</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>{!Loop_through_Interactions.Name}
+{!Loop_through_Interactions.InteractionType}
+{!Loop_through_Interactions.StartTime}
+{!Loop_through_Interactions.Interaction_Summary__c}
+</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_through_Interactions</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Check_Relationships_Exists</name>
+        <label>Check Relationships Exists</label>
+        <locationX>182</locationX>
+        <locationY>866</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Valid_Contacts</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Account_Contact_Relationship</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_Through_Relationships</targetReference>
+            </connector>
+            <label>Valid Contacts</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Interaction Summary with Relationships {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Interaction Summary with Relationships</label>
+    <loops>
+        <name>Loop_through_Interactions</name>
+        <label>Loop through Interactions</label>
+        <locationX>182</locationX>
+        <locationY>242</locationY>
+        <collectionReference>Get_Interactions</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Interactions_Count</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Final_Interactions_Count</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>Loop_Through_Relationships</name>
+        <label>Loop Through Relationships</label>
+        <locationX>50</locationX>
+        <locationY>974</locationY>
+        <collectionReference>Get_Account_Contact_Relationship</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Send_Contact_Relationships</targetReference>
+        </nextValueConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>PromptFlow</processType>
+    <recordLookups>
+        <name>Get_Account_Contact_Relationship</name>
+        <label>Get Account Contact Relationship</label>
+        <locationX>182</locationX>
+        <locationY>758</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_Relationships_Exists</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>AccountRecord.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>AccountContactRelation</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Interactions</name>
+        <label>Get Interactions</label>
+        <locationX>182</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_through_Interactions</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>AccountRecord.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Interaction</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Interactions</targetReference>
+        </connector>
+        <triggerType>Capability</triggerType>
+    </start>
+    <status>Draft</status>
+    <variables>
+        <name>AccountRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <name>AllinteractionSummary</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>countInteractions</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+</Flow>

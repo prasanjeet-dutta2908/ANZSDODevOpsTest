@@ -1,0 +1,14 @@
+{
+  "required" : [ "LeadEmail" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "LeadEmail" : {
+      "title" : "LeadEmail",
+      "description" : "The email address used to identify a Lead record.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

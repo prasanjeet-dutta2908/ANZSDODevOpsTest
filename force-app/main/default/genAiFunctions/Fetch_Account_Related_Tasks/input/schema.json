@@ -1,0 +1,17 @@
+{
+  "required" : [ "AccountRecord" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "AccountRecord" : {
+      "title" : "AccountRecord",
+      "description" : "This is the input Account Record.",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "Account"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

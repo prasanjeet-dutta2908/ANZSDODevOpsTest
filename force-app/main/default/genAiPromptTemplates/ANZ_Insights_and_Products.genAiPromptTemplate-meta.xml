@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_1</activeVersionIdentifier>
+    <developerName>ANZ_Insights_and_Products</developerName>
+    <masterLabel>ANZ Insights and Products</masterLabel>
+    <templateVersions>
+        <content>As a Banker prospecting a new Institutional Bank client, I would like a summary of the client, the client&apos;s industry and recommendations of how ANZ products can potentially support client objectives.
+When I ask you to give me a summary, you should strictly follow the rules:
+
+Instructions:
+&quot;&quot;&quot;
+1. Follow the instructions precisely, do not add any information not provided.  
+Insights on the client&apos;s:
+Business generally
+Strategies and priorities
+Financial performance
+Key risks or challenges the client faces
+{!$EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4.results}
+</content>
+        <inputs>
+            <apiName>Opportunity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <masterLabel>Opportunity</masterLabel>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>Give me a summary of the client’s business, strategies, priorities, financial performance, key risks, and industry insights. Include potential actions or recommendations relevant to the client, their industry, and ANZ Institutional offerings.</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a Banker prospecting a new Institutional client, I want a structured summary of the client, their industry, and actionable recommendations on how ANZ products can support them.
+
+Instructions:
+&quot;&quot;&quot;
+
+1. Only use information from:  {!$EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4.results}
+2. Do not add any information not found in the data.
+3. Display results in this format:
+Name: [Name of the client]  
+Business Overview:  
+Strategies &amp; Priorities:  
+Financial Performance:  
+Key Risks or Challenges Faced:  
+
+Insights on the Client&apos;s Industry:  
+
+Potential actions or recommendations in the context of:  
+- The client  
+- The industry  
+- ANZ Institutional products
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>Opportunity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <masterLabel>Opportunity</masterLabel>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>Give me a summary of the client&apos;s business, strategies, priorities, financial performance, and risks. Include industry insights and recommendations for the client, industry, and ANZ Institutional products.</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Default_FileUDMO_SI_Retriever_1Cx_WVtd48469f4</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_2</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

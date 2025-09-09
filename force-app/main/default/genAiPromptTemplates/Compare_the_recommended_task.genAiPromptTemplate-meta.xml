@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_5</activeVersionIdentifier>
+    <developerName>Compare_the_recommended_task</developerName>
+    <masterLabel>Compare the recommended task</masterLabel>
+    <templateVersions>
+        <content>Your job is to compare the recommended task asked by the user which is {!$Input:Recommended_Task} with all the existing tasks from the flow {!$Flow:Fetch_Existing_Tasks_for_Prompt.Prompt} and find out if the recommended task is a potential duplicate or a unique task.
+
+When I ask you to compare the recommended task with the existing tasks, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+1. Fetch all the existing task records related to the {!$Input:Account_Record.Id} from the flow : {!$Flow:Fetch_Existing_Tasks_for_Prompt.Prompt}
+2. Extract the &quot;Task Subject&quot; and &quot;Task Description&quot; from each record.
+3. After fetching the existing tasks, analyse the recommended task from {!$Input:Recommended_Task}, Compare each newly recommended task’s Subject and Description with existing task&apos;s Subject and Description using a semantic similarity check (not just exact text matches).
+4. STRICTLY Compare the recommended tasks that closely match an existing task&apos;s Subject and Description based on meaning, even if wording differs slightly.
+5. Avoid reworded or slightly modified versions of existing tasks.
+6. IF  the recommended task is a potential duplicate THEN output &quot;It is a potential duplicate&quot;
+7. IF  the recommended task is a  unique task THEN output &quot;It is a unique task&quot;
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>Account_Record</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>Account Record</masterLabel>
+            <referenceName>Input:Account_Record</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Recommended_Task</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Recommended Task</masterLabel>
+            <referenceName>Input:Recommended_Task</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude3Haiku</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Existing_Tasks_for_Prompt</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>input_accountRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Existing_Tasks_for_Prompt</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Your job is to compare the recommended task asked by the user which is {!$Input:Recommended_Task} with all the existing tasks from the flow {!$Flow:Fetch_Existing_Tasks_for_Prompt.Prompt} and find out if the recommended task is a potential duplicate or a unique task.
+
+When I ask you to compare the recommended task with the existing tasks, you must strictly follow my instructions below.
+
+Instructions:
+&quot;&quot;&quot;
+1. Fetch all the existing task records related to the {!$Input:Account_Record.Id} from the flow : {!$Flow:Fetch_Existing_Tasks_for_Prompt.Prompt}
+2. Extract the &quot;Task Subject&quot; and &quot;Task Description&quot; from each record.
+3. After fetching the existing tasks, analyse the recommended task from {!$Input:Recommended_Task}, Compare each newly recommended task’s Subject and Description with existing task&apos;s Subject and Description using a semantic similarity check (not just exact text matches).
+4. STRICTLY Compare the recommended tasks that closely match an existing task&apos;s Subject and Description based on meaning, even if wording differs slightly.
+5. Avoid reworded or slightly modified versions of existing tasks.
+6. IF  the recommended task is a potential duplicate THEN output &quot;It is a potential duplicate&quot;
+7. IF  the recommended task is a  unique task THEN output &quot;It is a unique task&quot;
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>Account_Record</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>Account Record</masterLabel>
+            <referenceName>Input:Account_Record</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Recommended_Task</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Recommended Task</masterLabel>
+            <referenceName>Input:Recommended_Task</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Existing_Tasks_for_Prompt</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>input_accountRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Existing_Tasks_for_Prompt</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Your task is to compare the recommended task provided by the user with all the existing tasks from the flow and determine if the recommended task is a potential duplicate or a unique task. 
+Follow these instructions carefully when comparing:
+
+Instructions:
+&quot;&quot;&quot;
+1. Fetch Existing Tasks: Retrieve all existing task records associated with the {!$Input:Account_Record.Id} from the flow {!$Flow:Fetch_Existing_Tasks_for_Prompt.Prompt}
+2. Extract Task Data: From each existing task record, extract the &quot;Task Subject&quot; and &quot;Task Description.&quot;
+3. Compare the Subject and Description of the recommended task which is {!$Input:Recommended_Task} with the Subject and Description of all existing tasks using a semantic similarity check. Focus on the underlying meaning and intent of the tasks, not just exact text matches.
+4. Avoid Reworded Duplicates:  Do not identify reworded or slightly modified versions of existing tasks as unique.
+5. Output Result:
+IF the recommended task is a potential duplicate (similar meaning or intent to an existing task), THEN display the following &quot;It is a potential duplicate&quot;
+IF the recommended task is a unique task (distinct meaning or intent compared to existing tasks), THEN display the the following &quot;It is a unique task&quot;
+&quot;&quot;&quot;
+
+</content>
+        <inputs>
+            <apiName>Account_Record</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>Account Record</masterLabel>
+            <referenceName>Input:Account_Record</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Recommended_Task</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Recommended Task</masterLabel>
+            <referenceName>Input:Recommended_Task</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Existing_Tasks_for_Prompt</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>input_accountRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Existing_Tasks_for_Prompt</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Your task is to compare the recommended task provided by the user with all the existing tasks from the flow and determine if the recommended task is a potential duplicate or a unique task. 
+Follow these instructions carefully when comparing:
+
+Instructions:
+&quot;&quot;&quot;
+1. Fetch Existing Tasks: Retrieve all existing task records associated with the {!$Input:Account_Record.Id} from the flow {!$Flow:Fetch_Existing_Tasks_for_Prompt.Prompt}
+2. Extract Task Data: From each existing task record, extract the &quot;Task Subject&quot; and &quot;Task Description.&quot;
+3. Compare the Subject and Description of the recommended task which is {!$Input:Recommended_Task} with the Subject and Description of all existing tasks using a semantic similarity check. Focus on the underlying meaning and intent of the tasks, not just exact text matches.
+4. Strict Semantic Comparison:  Strictly compare the recommended tasks that closely match an existing task&apos;s Subject and Description based on meaning, even if the wording differs slightly.
+5. Avoid Reworded Duplicates:  Do not identify reworded or slightly modified versions of existing tasks as unique.
+6. Output Result:
+IF the recommended task is a potential duplicate (similar meaning or intent to an existing task), THEN display the following
+ &quot;It is a potential duplicate
+ &lt;a href=&quot;/[Task Id]&quot;&gt;[Task Subject]&lt;/a&gt; (This is the task which already exists)&quot;
+IF the recommended task is a unique task (distinct meaning or intent compared to existing tasks), THEN display the the following &quot;It is a unique task&quot;
+&quot;&quot;&quot;
+Subject: Follow-up on FMDS Renewal
+Description: Confirm the renewal of FMDS and finalize the restructure into ABL.
+
+</content>
+        <inputs>
+            <apiName>Account_Record</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>Account Record</masterLabel>
+            <referenceName>Input:Account_Record</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Recommended_Task</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Recommended Task</masterLabel>
+            <referenceName>Input:Recommended_Task</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Existing_Tasks_for_Prompt</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>input_accountRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Existing_Tasks_for_Prompt</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_4</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Your task is to compare the recommended task provided by the user with all the existing tasks from the flow and determine if the recommended task is a potential duplicate or a unique task. 
+Follow these instructions carefully when comparing:
+
+Instructions:
+&quot;&quot;&quot;
+1. Fetch Existing Tasks: Retrieve all existing task records associated with the {!$Input:Account_Record.Id} from the flow {!$Flow:Fetch_Existing_Tasks_for_Prompt.Prompt}
+2. Extract Task Data: From each existing task record, extract the &quot;Task Subject&quot; and &quot;Task Description.&quot;
+3. Compare the Subject and Description of the recommended task which is {!$Input:Recommended_Task} with the Subject and Description of all existing tasks using a semantic similarity check. Focus on the underlying meaning and intent of the tasks, not just exact text matches.
+4. Strict Semantic Comparison:  Strictly compare the recommended tasks that closely match an existing task&apos;s Subject and Description based on meaning, even if the wording differs slightly.
+5. Avoid Reworded Duplicates:  Do not identify reworded or slightly modified versions of existing tasks as unique.
+6. Output Result:
+IF the recommended task is a potential duplicate (similar meaning or intent to an existing task), THEN display the following
+ &quot;It is a potential duplicate and this is the existing task (Send the Task Id and Subject of the existing Task)&quot;
+IF the recommended task is a unique task (distinct meaning or intent compared to existing tasks), THEN display the the following &quot;It is a unique task&quot;
+&quot;&quot;&quot;
+Subject: Follow-up on FMDS Renewal
+Description: Confirm the renewal of FMDS and finalize the restructure into ABL.
+
+</content>
+        <inputs>
+            <apiName>Account_Record</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>Account Record</masterLabel>
+            <referenceName>Input:Account_Record</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Recommended_Task</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Recommended Task</masterLabel>
+            <referenceName>Input:Recommended_Task</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Existing_Tasks_for_Prompt</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>input_accountRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Existing_Tasks_for_Prompt</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_5</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Your task is to compare the recommended task provided by the user with all the existing tasks from the flow and determine if the recommended task is a potential duplicate or a unique task. 
+Follow these instructions carefully when comparing:
+
+Instructions:
+&quot;&quot;&quot;
+1. Fetch Existing Tasks: Retrieve all existing task records associated with the {!$Input:Account_Record.Id} from the flow {!$Flow:Fetch_Existing_Tasks_for_Prompt.Prompt}
+2. Extract Task Data: From each existing task record, extract the &quot;Task Subject&quot; and &quot;Task Description.&quot;
+3. Compare the Subject and Description of the recommended task which is {!$Input:Recommended_Task} with the Subject and Description of all existing tasks using a semantic similarity check. Focus on the underlying meaning and intent of the tasks, not just exact text matches.
+4. Strict Semantic Comparison:  Strictly compare the recommended tasks that closely match an existing task&apos;s Subject and Description based on meaning, even if the wording differs slightly.
+5. Avoid Reworded Duplicates:  Do not identify reworded or slightly modified versions of existing tasks as unique.
+6. Output Result:
+IF the recommended task is a potential duplicate (similar meaning or intent to an existing task), THEN display the following
+ &quot;It is a potential duplicate and this is the existing task (Send the Task Id and Subject of the existing Task)&quot;
+IF the recommended task is a unique task (distinct meaning or intent compared to existing tasks), THEN display the  following &quot;It is a unique task&quot;
+&quot;&quot;&quot;
+
+</content>
+        <inputs>
+            <apiName>Account_Record</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>Account Record</masterLabel>
+            <referenceName>Input:Account_Record</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Recommended_Task</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Recommended Task</masterLabel>
+            <referenceName>Input:Recommended_Task</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Existing_Tasks_for_Prompt</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>input_accountRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Existing_Tasks_for_Prompt</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_6</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

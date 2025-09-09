@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Final_Interactions_Count</name>
+        <elementSubtype>AddPromptInstructions</elementSubtype>
+        <label>Final Interactions Count</label>
+        <locationX>176</locationX>
+        <locationY>650</locationY>
+        <assignmentItems>
+            <assignToReference>$Output.Prompt</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>Total Number of Interactions - {!countInteractions}
+</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_AZ_Reviews</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Interactions_Count</name>
+        <label>Interactions Count</label>
+        <locationX>264</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>countInteractions</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Send_Interactions_Data</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Send_Dairy_Notes</name>
+        <elementSubtype>AddPromptInstructions</elementSubtype>
+        <label>Send Dairy Notes</label>
+        <locationX>264</locationX>
+        <locationY>1274</locationY>
+        <assignmentItems>
+            <assignToReference>$Output.Prompt</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>Dairy Note Record :
+Dairy Note date : {!loop_Dairy_Notes.Interaction_Date__c}Dairy Note Type : {!loop_Dairy_Notes.Interaction_Type__c} 
+Dairy Notes Summary : {!loop_Dairy_Notes.Notes__c}
+Contact Person : {!loop_Dairy_Notes.Contact_Person__c}
+
+</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>loop_Dairy_Notes</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Send_Interactions_Data</name>
+        <elementSubtype>AddPromptInstructions</elementSubtype>
+        <label>Send Interactions Data</label>
+        <locationX>264</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>$Output.Prompt</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>Interaction Id: {!Loop_through_Interactions.Id}
+Interaction Name: {!Loop_through_Interactions.Name}
+Interaction Type: {!Loop_through_Interactions.InteractionType}
+Interaction Start Time:{!Loop_through_Interactions.StartTime}
+Interaction Summary:{!Loop_through_Interactions.Interaction_Summary__c}
+</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_through_Interactions</targetReference>
+        </connector>
+    </assignments>
+    <environments>Default</environments>
+    <interviewLabel>Fetch Client Interactions {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Fetch Client Interactions</label>
+    <loops>
+        <name>Loop_2</name>
+        <label>Loop AZ Reviews</label>
+        <locationX>176</locationX>
+        <locationY>866</locationY>
+        <collectionReference>Get_AZ_Reviews</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <noMoreValuesConnector>
+            <targetReference>Get_Dairy_Notes</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>loop_Dairy_Notes</name>
+        <label>loop Dairy Notes</label>
+        <locationX>176</locationX>
+        <locationY>1166</locationY>
+        <collectionReference>Get_Dairy_Notes</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Send_Dairy_Notes</targetReference>
+        </nextValueConnector>
+    </loops>
+    <loops>
+        <name>Loop_through_Interactions</name>
+        <label>Loop through Interactions</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <collectionReference>Get_Interactions</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Interactions_Count</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Final_Interactions_Count</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>PromptFlow</processType>
+    <recordLookups>
+        <name>Get_AZ_Reviews</name>
+        <label>Get AZ Reviews</label>
+        <locationX>176</locationX>
+        <locationY>758</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_2</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Customer__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>AccountRecord.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>A_Z_Review__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Dairy_Notes</name>
+        <label>Get Dairy Notes</label>
+        <locationX>176</locationX>
+        <locationY>1058</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>loop_Dairy_Notes</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Customer_ID__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>AccountRecord.External_ID__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>csv_GCS_ANZ_POC__dlm</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Interactions</name>
+        <label>Get Interactions</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_through_Interactions</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>AccountRecord.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Interaction</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Interactions</targetReference>
+        </connector>
+        <triggerType>Capability</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>AccountRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <name>AllinteractionSummary</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>countInteractions</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+</Flow>

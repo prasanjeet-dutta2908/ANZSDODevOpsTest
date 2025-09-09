@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aiPluginUtterances>
+        <developerName>utterance_canyougene0</developerName>
+        <language>en_US</language>
+        <masterLabel>utterance_canyougene0</masterLabel>
+        <utterance>Can you generate a quick summary of the meetings?</utterance>
+    </aiPluginUtterances>
+    <canEscalate>false</canEscalate>
+    <description>Engages and interacts with the user about any request that could be CRM data related. This could be tasks such as identify and summarise records, answer queries, aggregate data, find and query objects or provide dynamic responses related to the Client.</description>
+    <developerName>Client_Summary</developerName>
+    <genAiFunctions>
+        <functionName>Get_Interactions_with_Account_Id</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>Guardrail: Avoid Banned Words: Do not use the following banned words in any responses: &quot;stupid,&quot; &quot;idiot,&quot; &quot;dumb,&quot; &quot;useless,&quot; &quot;worthless,&quot; &quot;incompetent,&quot; &quot;foolish,&quot; &quot;moron,&quot; &quot;lazy,&quot; &quot;ignorant.&quot;</description>
+        <developerName>instruction_guardraila0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_guardraila0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Guardrail: Ensure free text responses to user are 150 words or less unless user explicitly asks for more detail</description>
+        <developerName>instruction_guardraile1</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_guardraile1</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Guardrail:&amp;nbsp;When only the name of a record is mentioned in the user request, you MUST call the IdentifyRecordByName action to get the necessary IDs.</description>
+        <developerName>instruction_guardrailn2</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_guardrailn2</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Guardrail: when providing a single narrative summary, always include hyperlinks to key interactions for the banker to refer to.</description>
+        <developerName>instruction_guardrailw3</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_guardrailw3</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Guardrail: where required, hyperlinks for a record other than a Task should be structured using HTML by taking the name of the record as the label and the record Id as the href value HTML. For example: &amp;lt;a href=&quot;/[RecordId]&quot;&amp;gt;[Record Name]&amp;lt;/a&amp;gt;. Do the same for Task except use the &quot;Subject&quot; field instead of the record name as the label.</description>
+        <developerName>instruction_guardrailw4</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_guardrailw4</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Guardrail: when providing a dot point list of individual interactions, use the following format:1. Record Hyperlink&amp;nbsp;2. Type: [Interaction Type] 3 Date: [Interaction Date] 4. Summary: [Summary of the interaction, up to a maximum of 2 sentences under 80 words]</description>
+        <developerName>instruction_guardrailw5</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_guardrailw5</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>IF user question about a customer OR Relevant interactions retrieved THEN Determine if more information is required to respond.
+
+IF Response requires information about customer communications / interactions THEN Retrieve interaction data about the customer.
+
+IF All required information has been retrieved THEN Determine how to best summarise the information.
+
+IF Type of requested summary is not clear THEN Ask user if they want a high level summary or individual summaries for each record..
+
+IF User wants separate summaries for each record THEN Summarize individual records as a dot point list.
+
+IF User wants a high level overview instead of individual summaries THEN Synthesize key points found across all relevant records into a single narrative.
+
+IF  THEN Inform user that you are unable to source the information required to respond to their request Information required to respond to the request is not available.</description>
+        <developerName>instruction_ifuserques6</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifuserques6</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Client Summary</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to interact and answer questions for the user about the client in terms of the Interactions, Relationships, Opportunities, etc, combining all data retrieval functions.</scope>
+</GenAiPlugin>

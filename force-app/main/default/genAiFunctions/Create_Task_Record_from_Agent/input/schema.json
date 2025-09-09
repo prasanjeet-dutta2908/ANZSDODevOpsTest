@@ -1,0 +1,38 @@
+{
+  "required" : [ "input_AccountRecord", "input_activityDate", "input_description", "input_subject" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "input_AccountRecord" : {
+      "title" : "input_AccountRecord",
+      "description" : "This is the input account record.\n",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "Account"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "input_activityDate" : {
+      "title" : "input_activityDate",
+      "description" : "This is the input task activity date.\n",
+      "lightning:type" : "lightning__dateType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "input_description" : {
+      "title" : "input_description",
+      "description" : "This is the input task description.\n",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "input_subject" : {
+      "title" : "input_subject",
+      "description" : "This is the input task subject.\n",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

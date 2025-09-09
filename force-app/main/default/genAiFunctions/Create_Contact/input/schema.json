@@ -1,0 +1,35 @@
+{
+  "required" : [ "input_accountId", "input_firstName", "input_lastName", "input_title" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "input_accountId" : {
+      "title" : "input_accountId",
+      "description" : "This is the account Id.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "input_firstName" : {
+      "title" : "input_firstName",
+      "description" : "This is the First name of the contact.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "input_lastName" : {
+      "title" : "input_lastName",
+      "description" : "This is the Last name of the contact.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "input_title" : {
+      "title" : "input_title",
+      "description" : "This is the title of the contact.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

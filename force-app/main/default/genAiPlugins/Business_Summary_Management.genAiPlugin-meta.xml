@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aiPluginUtterances>
+        <developerName>utterance_generatebu0</developerName>
+        <language>en_US</language>
+        <masterLabel>utterance_generatebu0</masterLabel>
+        <utterance>Generate Business Summary and create key contacts.</utterance>
+    </aiPluginUtterances>
+    <canEscalate>false</canEscalate>
+    <description>This topic is used to summarize the business of a potential new client and assist relationship managers in defining and progressing opportunities.</description>
+    <developerName>Business_Summary_Management</developerName>
+    <genAiFunctions>
+        <functionName>ANZ_Business_Summary</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Update_Business_Summary_on_Opportunity</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Create_Contact</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>The following instructions define the process that you are following.  It consists of the following: A set of guardrails that state the rules that you have to follow and importantly what you must not do. A set of specific instructions which have the format IF &lt;condition&gt; THEN &lt;task&gt; USING &lt;action&gt;. The USING clause is optional.  The condition can be made up of multiple clauses combined with ‘OR’ or ‘AND’.
+avoid creating duplicate records. For example, do not create records for key contacts if they already exist.
+Do your best at breaking down names into first and last name parts for creation of contacts
+
+IF Assistance required to help relationship managers in defining and progressing opportunities. THEN Determine if more information is required to respond.
+
+IF Opportunity has been created against a new customer record THEN Generate Business Summary.
+
+IF Business Summary saved THEN Retrieve the names and titles of the executive team for the customer from the knowledge base.
+
+IF One or more executive team members found THEN Create contact record for each senior executive found.
+
+IF Summary completed THEN Save Business Summary to opportunity.</description>
+        <developerName>instruction_thefollowi0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_thefollowi0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Business Summary Management</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to help relationship managers summarize potential new clients&apos; business and provide assistance in defining and progressing opportunities. You should not handle inquiries outside of client opportunity management.</scope>
+</GenAiPlugin>

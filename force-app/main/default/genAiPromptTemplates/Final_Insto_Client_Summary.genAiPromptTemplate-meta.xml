@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_2</activeVersionIdentifier>
+    <developerName>Final_Insto_Client_Summary</developerName>
+    <masterLabel>Final Insto Client Summary</masterLabel>
+    <templateVersions>
+        <content>You’re a Relationship Manager at ANZ Institutional and Corporate Banking, preparing for a strategic review with an institutional client: {!$Input:Account_Record.Name}. Your task is to create a comprehensive yet concise summary of the relationship and interactions for internal use. 
+Follow these detailed instructions strictly when summarising:
+Instructions:
+
+&quot;&quot;&quot;
+1. Follow these instructions precisely; do not include any data not provided.  
+2. Use clear, concise, and active voice. Avoid filler words and redundant language.  
+3. Keep each bullet point under 20 words.
+4. Do not display all the interactions data.
+5. Maintain the structure and section headers exactly as outlined.  
+
+
+&lt;h2&gt;Relationship Summary&lt;/h2&gt; 
+Overview of ANZ’s relationship with {!$Input:Account_Record.Name}, including history and relationship status, extract the contacts details from CONTACTS, PIPELINE DEALS &amp; INCOME DETAILS section
+&lt;p&gt;• &lt;strong&gt;Key contacts:&lt;/strong&gt; [Contact Name, Title]&lt;/p&gt;&lt;br/&gt;
+
+&lt;br/&gt;&lt;h2&gt;Summary of Total Effort Revenue (TER) &amp; Deal Outlook&lt;/h2&gt; 
+6. Overview of revenue performance and drivers. Extract the INCOME details from CONTACTS, PIPELINE DEALS &amp; INCOME DETAILS section and use to provide a summary using:
+7. Use the following fields for data extraction ONLY (do not include them in the final output):
+• FYX Projected TER (Base): $[Amount]  
+• FYX Projected TER (Max incl. all deals): $[Amount]  
+• FYX income from probability-adjusted pipeline: $[Amount]  
+• Key drivers: [e.g., Corporate Finance, Trade, Markets]
+
+8. STRICTLY Display the above details in the format of the example given below and replace with the actual extracted INCOME data
+9. Based on the extracted data, generate a single paragraph summary in the following format exactly:
+&lt;p&gt;The customer’s projected TER for FYX is &lt;strong&gt;$[Base Amount]&lt;/strong&gt; based on a combination of revenue generated in the previous year and the probability weighted return from the Active Deals pipeline. This growth is primarily driven by &lt;em&gt;[Key Drivers]&lt;/em&gt;. If all deals were to be completed, the projected TER in FYX is &lt;strong&gt;$[Max Amount]&lt;/strong&gt;.&lt;/p&gt;
+
+10. Summarise the last 10 interactions extracting the INTERACTIONS and ATTENDEES data from INTERACTIONS &amp; ATTENDEES section. 
+&lt;br/&gt;&lt;h2&gt;Interaction Summary&lt;/h2&gt; 
+&lt;p&gt;&lt;strong&gt;Key Discussion Points:&lt;/strong&gt;&lt;/p&gt; (For the Key Discussion Points, include the START TIME and the TYPE of interaction, key takeaways from interactions and topics covered in meetings e.g., strategic direction, customer priorities, business opportunities and challenges, expansion/ investment/ Divestment plans, Liquidity, Receivables finance etc. Include who the discussions were held with and link to the source call records)
+
+&lt;p&gt;• &lt;strong&gt;[Main Topic]&lt;/strong&gt; – [ **STRICTLY include the START DATE and TYPE of interaction inside the summary**Short Brief summary of the interaction having maximum 2 sentences. Mention attendees or key contact names, and the main discussion points such as strategic direction, customer priorities, business opportunities and challenges, expansion/investment/divestment plans, liquidity, receivables finance, etc.]&lt;br/&gt; (&lt;a href=&quot;/[Source]&quot;&gt;Source&lt;/a&gt;)&lt;/p&gt;
+Repeat this for the last 10 interactions only. Do not skip the START DATE or TYPE in any summary.
+
+&lt;br/&gt;&lt;h2&gt;Products Not Progressed&lt;/h2&gt; 
+11. Opportunities not pursued and reasons. Extract relevant INTERACTIONS data from INTERACTIONS &amp; ATTENDEES section for the following and use the correct Interaction Id in Source:
+
+&lt;p&gt;• &lt;strong&gt;[Product]&lt;/strong&gt; – [Reason for lost opportunity + lost revenue] (&lt;a href=&quot;/[Source]&quot;&gt;Source&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;• &lt;strong&gt;[Product]&lt;/strong&gt; – [Reason for lost opportunity + lost revenue] (&lt;a href=&quot;/[Source]&quot;&gt;Source&lt;/a&gt;)&lt;/p&gt;&lt;br/&gt;
+
+&lt;br/&gt;&lt;h2&gt;Pipeline Deals&lt;/h2&gt; 
+
+&lt;p&gt;&lt;strong&gt;1. Future Opportunities&lt;/strong&gt;&lt;br/&gt;Extract all the PIPELINE DEALS and use to summarise and provide in the following format&lt;/p&gt;
+
+&lt;p&gt;• &lt;strong&gt;[Deal Name]&lt;/strong&gt; – Stage: [Stage], Revenue: &lt;strong&gt;$[Amount]&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;• &lt;strong&gt;[Deal Name]&lt;/strong&gt; – Stage: [Stage], Revenue: &lt;strong&gt;$[Amount]&lt;/strong&gt;&lt;/p&gt;
+
+&lt;br/&gt;&lt;p&gt;&lt;strong&gt;2. Potential Opportunities&lt;/strong&gt; Extract from the INTERACTIONS from INTERACTIONS &amp; ATTENDEES section for all the potential opportunities identified from customer interactions e.g. customer wants to expand in the next 12 months, buying a new warehouse, new tractor and display in the format:&lt;/p&gt;
+
+&lt;p&gt;• &lt;strong&gt;[Opportunity]&lt;/strong&gt; – [Key detail] (&lt;a href=&quot;/[Source]&quot;&gt;Source&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;• &lt;strong&gt;[Opportunity]&lt;/strong&gt; – [Key detail] (&lt;a href=&quot;/[Source]&quot;&gt;Source&lt;/a&gt;)&lt;/p&gt;
+
+&lt;br/&gt;&lt;h2&gt;Events&lt;/h2&gt; 
+Extract EVENTS &amp; MEMBERS from EVENTS AND MEMBERS section and use the data to provide following:
+&lt;p&gt;&lt;strong&gt;1. Past Events&lt;/strong&gt;&lt;br/&gt;Extract all Completed (Event Status: Completed) events and display the Event Name, Date, and the Name of Members Attended (status: Responded) and Members who were absent (status: Absent), [**STRICTLY along with the [Count] for each group**].&lt;/p&gt;
+
+&lt;br/&gt;&lt;p&gt;&lt;strong&gt;2. Future Events&lt;/strong&gt;&lt;br/&gt;Extract all Planned Events (Event Status: Planned) events and display the Event Name, Date, and the list of Members who responded (status: Responded) STRICTLY along with the count.&lt;/p&gt;
+
+&lt;p&gt;Industry Insights&lt;/p&gt; 
+Use the data from {!$Input:Knowlege_Answer} and display the output in a user readable format with source URLs.
+&quot;&quot;&quot;
+
+HTML GENERATION GUIDELINES:
+&quot;&quot;&quot;
+1. Use &lt;p&gt; tags for paragraphs and bullets (every line must be in a &lt;p&gt; tag).  
+2. Use &lt;a&gt; tags to hyperlink source records. Do not interpret or modify Interaction Record Ids. **STRICTLY replace &quot;[Source]&quot; DIRECTLY with the Interaction Record Id from the provided data. Do not modify or interpret the ID.** 
+3. Use &lt;strong&gt; for bolded content. Bold all numbers using &lt;strong&gt;. Format each section name in bold and inline (e.g., &lt;strong&gt;Credit Assessment&lt;/strong&gt; The customer...)  
+4. Use &lt;em&gt; for italicised content. Italicise up to 2–3 words per section to add emphasis using &lt;em&gt; (e.g., &lt;em&gt;rising funding needs&lt;/em&gt;).  
+5. Do NOT use bullet HTML tags like &lt;ul&gt;/&lt;li&gt;. Each bullet should be inside a &lt;p&gt; tag and begin with &quot;•&quot;.  
+6. All output must be valid HTML.  
+
+&quot;&quot;&quot;
+
+
+###
+INTERACTIONS &amp; ATTENDEES:
+{!$Flow:Fetch_Insto_Interactions.Prompt}
+
+###
+CONTACTS, PIPELINE DEALS &amp; INCOME DETAILS:
+{!$Flow:Fetch_Pipeline_and_Income_Details.Prompt}
+
+###
+EVENTS AND MEMBERS
+{!$Flow:Campaign_Members_for_Event.Prompt}
+
+</content>
+        <inputs>
+            <apiName>Account_Record</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>Account Record</masterLabel>
+            <referenceName>Input:Account_Record</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Knowlege_Answer</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Knowlege Answer</masterLabel>
+            <referenceName>Input:Knowlege_Answer</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Insto_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Insto_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://Fetch_Pipeline_and_Income_Details</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>input_accRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Pipeline_and_Income_Details</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://Campaign_Members_for_Event</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>input_accountRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Campaign_Members_for_Event</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You’re a Relationship Manager at ANZ Institutional and Corporate Banking, preparing for a strategic review with an institutional client: {!$Input:Account_Record.Name}. Your task is to create a comprehensive yet concise summary of the relationship and interactions for internal use. 
+Follow these detailed instructions strictly when summarising:
+Instructions:
+
+&quot;&quot;&quot;
+1. Follow these instructions precisely; do not include any data not provided.  
+2. Use clear, concise, and active voice. Avoid filler words and redundant language.  
+3. Keep each bullet point under 20 words.
+4. Do not display all the interactions data.
+5. Maintain the structure and section headers exactly as outlined.  
+
+
+&lt;h2&gt;Relationship Summary&lt;/h2&gt; 
+Overview of ANZ’s relationship with {!$Input:Account_Record.Name}, including history and relationship status, extract the contacts details from CONTACTS, PIPELINE DEALS &amp; INCOME DETAILS section
+&lt;p&gt;• &lt;strong&gt;Key contacts:&lt;/strong&gt; [Contact Name, Title]&lt;/p&gt;&lt;br/&gt;
+
+&lt;br/&gt;&lt;h2&gt;Summary of Total Effort Revenue (TER) &amp; Deal Outlook&lt;/h2&gt; 
+6. Overview of revenue performance and drivers. Extract the INCOME details from CONTACTS, PIPELINE DEALS &amp; INCOME DETAILS section and use to provide a summary using:
+7. Use the following fields for data extraction ONLY (do not include them in the final output):
+• FYX Projected TER (Base): $[Amount]  
+• FYX Projected TER (Max incl. all deals): $[Amount]  
+• FYX income from probability-adjusted pipeline: $[Amount]  
+• Key drivers: [e.g., Corporate Finance, Trade, Markets]
+
+8. STRICTLY Display the above details in the format of the example given below and replace with the actual extracted INCOME data
+9. Based on the extracted data, generate a single paragraph summary in the following format exactly:
+&lt;p&gt;The customer’s projected TER for FYX is &lt;strong&gt;$[Base Amount]&lt;/strong&gt; based on a combination of revenue generated in the previous year and the probability weighted return from the Active Deals pipeline. This growth is primarily driven by &lt;em&gt;[Key Drivers]&lt;/em&gt;. If all deals were to be completed, the projected TER in FYX is &lt;strong&gt;$[Max Amount]&lt;/strong&gt;.&lt;/p&gt;
+
+10. Summarise the last 10 interactions extracting the INTERACTIONS and ATTENDEES data from INTERACTIONS &amp; ATTENDEES section. 
+&lt;br/&gt;&lt;h2&gt;Interaction Summary&lt;/h2&gt; 
+&lt;p&gt;&lt;strong&gt;Key Discussion Points:&lt;/strong&gt;&lt;/p&gt; (For the Key Discussion Points, include the START TIME and the TYPE of interaction, key takeaways from interactions and topics covered in meetings e.g., strategic direction, customer priorities, business opportunities and challenges, expansion/ investment/ Divestment plans, Liquidity, Receivables finance etc. Include who the discussions were held with and link to the source call records)
+
+&lt;p&gt;• &lt;strong&gt;[Main Topic]&lt;/strong&gt; – [ **STRICTLY include the START DATE and TYPE of interaction inside the summary**Short Brief summary of the interaction having maximum 2 sentences. Mention attendees or key contact names, and the main discussion points such as strategic direction, customer priorities, business opportunities and challenges, expansion/investment/divestment plans, liquidity, receivables finance, etc.]&lt;br/&gt; (&lt;a href=&quot;/[Source]&quot;&gt;Source&lt;/a&gt;)&lt;/p&gt;
+Repeat this for the last 10 interactions only. Do not skip the START DATE or TYPE in any summary.
+
+&lt;br/&gt;&lt;h2&gt;Products Not Progressed&lt;/h2&gt; 
+11. Opportunities not pursued and reasons. Extract relevant INTERACTIONS data from INTERACTIONS &amp; ATTENDEES section for the following and use the correct Interaction Id in Source:
+
+&lt;p&gt;• &lt;strong&gt;[Product]&lt;/strong&gt; – [Reason for lost opportunity + lost revenue] (&lt;a href=&quot;/[Source]&quot;&gt;Source&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;• &lt;strong&gt;[Product]&lt;/strong&gt; – [Reason for lost opportunity + lost revenue] (&lt;a href=&quot;/[Source]&quot;&gt;Source&lt;/a&gt;)&lt;/p&gt;&lt;br/&gt;
+
+&lt;br/&gt;&lt;h2&gt;Pipeline Deals&lt;/h2&gt; 
+
+&lt;p&gt;&lt;strong&gt;1. Future Opportunities&lt;/strong&gt;&lt;br/&gt;Extract all the PIPELINE DEALS and use to summarise and provide in the following format&lt;/p&gt;
+
+&lt;p&gt;• &lt;strong&gt;[Deal Name]&lt;/strong&gt; – Stage: [Stage], Revenue: &lt;strong&gt;$[Amount]&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;• &lt;strong&gt;[Deal Name]&lt;/strong&gt; – Stage: [Stage], Revenue: &lt;strong&gt;$[Amount]&lt;/strong&gt;&lt;/p&gt;
+
+&lt;br/&gt;&lt;p&gt;&lt;strong&gt;2. Potential Opportunities&lt;/strong&gt; Extract from the INTERACTIONS from INTERACTIONS &amp; ATTENDEES section for all the potential opportunities identified from customer interactions e.g. customer wants to expand in the next 12 months, buying a new warehouse, new tractor and display in the format:&lt;/p&gt;
+
+&lt;p&gt;• &lt;strong&gt;[Opportunity]&lt;/strong&gt; – [Key detail] (&lt;a href=&quot;/[Source]&quot;&gt;Source&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;• &lt;strong&gt;[Opportunity]&lt;/strong&gt; – [Key detail] (&lt;a href=&quot;/[Source]&quot;&gt;Source&lt;/a&gt;)&lt;/p&gt;
+
+&lt;br/&gt;&lt;h2&gt;Events&lt;/h2&gt; 
+Extract EVENTS &amp; MEMBERS from EVENTS AND MEMBERS section and use the data to provide following:
+&lt;p&gt;&lt;strong&gt;1. Past Events&lt;/strong&gt;&lt;br/&gt;Extract all Completed (Event Status: Completed) events and display the Event Name, Date, and the Name of Members Attended (status: Responded) and Members who were absent (status: Absent), [**STRICTLY along with the [Count] for each group**].&lt;/p&gt;
+
+&lt;br/&gt;&lt;p&gt;&lt;strong&gt;2. Future Events&lt;/strong&gt;&lt;br/&gt;Extract all Planned Events (Event Status: Planned) events and display the Event Name, Date, and the list of Members who responded (status: Responded) STRICTLY along with the count.&lt;/p&gt;
+
+&lt;br/&gt;&lt;p&gt;&lt;strong&gt;Industry Insights&lt;/strong&gt;&lt;/p&gt; 
+Use the data from {!$Input:Knowlege_Answer} and display the output in a user readable format with display the URLs.
+&quot;&quot;&quot;
+
+HTML GENERATION GUIDELINES:
+&quot;&quot;&quot;
+1. Use &lt;p&gt; tags for paragraphs and bullets (every line must be in a &lt;p&gt; tag).  
+2. Use &lt;a&gt; tags to hyperlink source records. Do not interpret or modify Interaction Record Ids. **STRICTLY replace &quot;[Source]&quot; DIRECTLY with the Interaction Record Id from the provided data. Do not modify or interpret the ID.** 
+3. Use &lt;strong&gt; for bolded content. Bold all numbers using &lt;strong&gt;. Format each section name in bold and inline (e.g., &lt;strong&gt;Credit Assessment&lt;/strong&gt; The customer...)  
+4. Use &lt;em&gt; for italicised content. Italicise up to 2–3 words per section to add emphasis using &lt;em&gt; (e.g., &lt;em&gt;rising funding needs&lt;/em&gt;).  
+5. Do NOT use bullet HTML tags like &lt;ul&gt;/&lt;li&gt;. Each bullet should be inside a &lt;p&gt; tag and begin with &quot;•&quot;.  
+6. All output must be valid HTML.  
+
+&quot;&quot;&quot;
+
+
+###
+INTERACTIONS &amp; ATTENDEES:
+{!$Flow:Fetch_Insto_Interactions.Prompt}
+
+###
+CONTACTS, PIPELINE DEALS &amp; INCOME DETAILS:
+{!$Flow:Fetch_Pipeline_and_Income_Details.Prompt}
+
+###
+EVENTS AND MEMBERS
+{!$Flow:Campaign_Members_for_Event.Prompt}
+
+</content>
+        <inputs>
+            <apiName>Account_Record</apiName>
+            <definition>SOBJECT://Account</definition>
+            <masterLabel>Account Record</masterLabel>
+            <referenceName>Input:Account_Record</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Knowlege_Answer</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Knowlege Answer</masterLabel>
+            <referenceName>Input:Knowlege_Answer</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Fetch_Insto_Interactions</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>AccountRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Insto_Interactions</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://Fetch_Pipeline_and_Income_Details</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>input_accRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Fetch_Pipeline_and_Income_Details</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://Campaign_Members_for_Event</definition>
+            <parameters>
+                <definition>SOBJECT://Account</definition>
+                <isRequired>true</isRequired>
+                <parameterName>input_accountRecord</parameterName>
+                <valueExpression>{!$Input:Account_Record}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Campaign_Members_for_Event</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>EjZyqK9w+od2YZrYadA8FZMGKopZQkhGvJ/AYooGms8=_2</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

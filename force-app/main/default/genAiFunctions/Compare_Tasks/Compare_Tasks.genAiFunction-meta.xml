@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This agent action analyses the client summary from the current conversation to recommend relevant tasks and next best actions. It ensures task uniqueness by comparing proposed tasks against existing tasks retrieved from the system, preventing duplicates.</description>
+    <invocationTarget>Compare_Tasks</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <masterLabel>Compare Tasks</masterLabel>
+    <progressIndicatorMessage>Suggesting...</progressIndicatorMessage>
+</GenAiFunction>
