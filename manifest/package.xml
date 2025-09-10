@@ -1,72 +1,107 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>*</members>
-        <name>ApexClass</name>
+        <members>ANZ_Dairy_Notes__dlm.Col1__c</members>
+        <members>ANZ_Dairy_Notes__dlm.Col2__c</members>
+        <members>ANZ_Dairy_Notes__dlm.Col3__c</members>
+        <members>ANZ_Dairy_Notes__dlm.Col4__c</members>
+        <members>ANZ_Dairy_Notes__dlm.Col5__c</members>
+        <members>ANZ_Dairy_Notes__dlm.ContentType__c</members>
+        <members>ANZ_Dairy_Notes__dlm.DataSourceObject__c</members>
+        <members>ANZ_Dairy_Notes__dlm.DataSource__c</members>
+        <members>ANZ_Dairy_Notes__dlm.ETag__c</members>
+        <members>ANZ_Dairy_Notes__dlm.FilePath__c</members>
+        <members>ANZ_Dairy_Notes__dlm.InternalOrganization__c</members>
+        <members>ANZ_Dairy_Notes__dlm.LastModified__c</members>
+        <members>ANZ_Dairy_Notes__dlm.Metadata__c</members>
+        <members>ANZ_Dairy_Notes__dlm.ParentId__c</members>
+        <members>ANZ_Dairy_Notes__dlm.ResolvedFilePath__c</members>
+        <members>ANZ_Dairy_Notes__dlm.Size__c</members>
+        <members>csv_GCS_ANZ_POC__dlm.Contact_Person__c</members>
+        <members>csv_GCS_ANZ_POC__dlm.CustIdAndDate__c</members>
+        <members>csv_GCS_ANZ_POC__dlm.Customer_ID__c</members>
+        <members>csv_GCS_ANZ_POC__dlm.DataSourceObject__c</members>
+        <members>csv_GCS_ANZ_POC__dlm.DataSource__c</members>
+        <members>csv_GCS_ANZ_POC__dlm.Interaction_Date__c</members>
+        <members>csv_GCS_ANZ_POC__dlm.Interaction_Type__c</members>
+        <members>csv_GCS_ANZ_POC__dlm.InternalOrganization__c</members>
+        <members>csv_GCS_ANZ_POC__dlm.Notes__c</members>
+        <name>CustomField</name>
     </types>
     <types>
-        <members>*</members>
-        <name>ApexComponent</name>
+        <members>ANZ_Dairy_Notes__dlm</members>
+        <members>csv_GCS_ANZ_POC__dlm</members>
+        <name>CustomObject</name>
     </types>
     <types>
-        <members>*</members>
-        <name>ApexPage</name>
+        <members>GCS_ANZ_POC</members>
+        <name>DataKitObjectDependency</name>
     </types>
     <types>
-        <members>*</members>
-        <name>ApexTestSuite</name>
+        <members>Dairy_Notes_ANZ</members>
+        <members>Dairy_Notes_Pdf</members>
+        <members>GCS_ANZ_POC</members>
+        <name>DataKitObjectTemplate</name>
     </types>
     <types>
-        <members>*</members>
-        <name>ApexTrigger</name>
+        <members>DevOps</members>
+        <name>DataPackageKitDefinition</name>
     </types>
     <types>
-        <members>*</members>
-        <name>AuraDefinitionBundle</name>
+        <members>DevOps_1757494845819</members>
+        <members>DevOps_1757494845924</members>
+        <members>DevOps_1757494846147</members>
+        <members>DevOps_1757494882360</members>
+        <members>DevOps_1757494885586</members>
+        <members>DevOps_1757495355258</members>
+        <members>DevOps_1757495355603</members>
+        <name>DataPackageKitObject</name>
     </types>
     <types>
-        <members>*</members>
-        <name>LightningComponentBundle</name>
+        <members>ANZ_Dairy_Notes</members>
+        <members>GCS_GCS_ANZ_POC</members>
+        <name>DataSource</name>
     </types>
     <types>
-        <members>*</members>
-        <name>StaticResource</name>
+        <members>ANZ_Dairy_Notes</members>
+        <name>DataSourceBundleDefinition</name>
     </types>
     <types>
-        <members>*</members>
-        <name>GenAiFunction</name>
+        <members>ANZ_Dairy_Notes</members>
+        <members>csv_GCS_ANZ_POC1</members>
+        <name>DataSourceObject</name>
     </types>
     <types>
-        <members>*</members>
-        <name>GenAiPlannerBundle</name>
+        <members>DevOpsANZ_Dairy_NotesCol1ANZ_Dairy_NotesCol1IpUEuATyKvWRznu</members>
+        <members>DevOpsANZ_Dairy_NotesCol2ANZ_Dairy_NotesCol2vOOMsPvjAHHIocn</members>
+        <members>DevOpsANZ_Dairy_NotesCol3ANZ_Dairy_NotesCol3KntCItsMcnCYFBS</members>
+        <members>DevOpsANZ_Dairy_NotesCol4ANZ_Dairy_NotesCol4eStnhTckdTjgjaK</members>
+        <members>DevOpsANZ_Dairy_NotesCol5ANZ_Dairy_NotesCol5wkNNHdAmFMgNROi</members>
+        <members>DevOpsANZ_Dairy_NotesContentTypeANZ_Dairy_NotesContentTypeVsGHVRddJuUmOoM</members>
+        <members>DevOpsANZ_Dairy_NotesDataSourceANZ_Dairy_NotesDataSourceFFFPEgeOhtgApGd</members>
+        <members>DevOpsANZ_Dairy_NotesDataSourceObjectANZ_Dairy_NotesDataSourceObjectlCzxyzbjioHRDMM</members>
+        <members>DevOpsANZ_Dairy_NotesETagANZ_Dairy_NotesETagUzAEeXvfmrweWGZ</members>
+        <members>DevOpsANZ_Dairy_NotesFilePathANZ_Dairy_NotesFilePathjXMrGVvvywVsDqa</members>
+        <members>DevOpsANZ_Dairy_NotesInternalOrganizationANZ_Dairy_NotesInternalOrganizationCTKpYdPDTrOwqJm</members>
+        <members>DevOpsANZ_Dairy_NotesLastModifiedANZ_Dairy_NotesLastModifiedwrnjMXVyGNmhHEQ</members>
+        <members>DevOpsANZ_Dairy_NotesMetadataANZ_Dairy_NotesMetadataiJAzXfXQWrPXSKD</members>
+        <members>DevOpsANZ_Dairy_NotesParentIdANZ_Dairy_NotesParentIdvEBBBkbIlGVCGIK</members>
+        <members>DevOpsANZ_Dairy_NotesResolvedFilePathANZ_Dairy_NotesResolvedFilePathDewBpQCLGHIsaGZ</members>
+        <members>DevOpsANZ_Dairy_NotesSizeANZ_Dairy_NotesSizeDiFLYvPeRYmezZD</members>
+        <members>DevOpsGCS_GCS_ANZ_POCContact_Personcsv_GCS_ANZ_POCContact_PersonloYbndXEmVgUfmu</members>
+        <members>DevOpsGCS_GCS_ANZ_POCCustIdAndDatecsv_GCS_ANZ_POCCustIdAndDatevjQCSOcaSuoAuub</members>
+        <members>DevOpsGCS_GCS_ANZ_POCCustomer_IDcsv_GCS_ANZ_POCCustomer_IDeBgfgUqePYGRffq</members>
+        <members>DevOpsGCS_GCS_ANZ_POCDataSourceObjectcsv_GCS_ANZ_POCDataSourceObjectvWHkXnUfqRVvCkB</members>
+        <members>DevOpsGCS_GCS_ANZ_POCDataSourcecsv_GCS_ANZ_POCDataSourceTurtgDXeVJOfuHn</members>
+        <members>DevOpsGCS_GCS_ANZ_POCInteraction_Datecsv_GCS_ANZ_POCInteraction_DateHkbZWHGFdGoeghq</members>
+        <members>DevOpsGCS_GCS_ANZ_POCInteraction_Typecsv_GCS_ANZ_POCInteraction_TypelosEnIBKtXiuyEz</members>
+        <members>DevOpsGCS_GCS_ANZ_POCInternalOrganizationcsv_GCS_ANZ_POCInternalOrganizationXLvqlskzZHUIsjy</members>
+        <members>DevOpsGCS_GCS_ANZ_POCNotescsv_GCS_ANZ_POCNoteseEpngnJufagfBym</members>
+        <name>DataSrcDataModelFieldMap</name>
     </types>
     <types>
-        <members>*</members>
-        <name>GenAiPlugin</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>GenAiPromptTemplate</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>GenAiPromptTemplateActv</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>LiveChatAgentConfig</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Bot</name>
-    </types>
-   <types>
-    <members>*</members>
-        <name>GenAiPlannerBundle</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Flow</name>
+        <members>csv_GCS_ANZ_POC_1757494847114</members>
+        <name>DataStreamTemplate</name>
     </types>
     <version>64.0</version>
 </Package>

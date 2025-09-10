@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FINS_Agency_Broker__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Agency/Broker</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Opportunities (Agency/Broker)</relationshipLabel>
+    <relationshipName>Opportunities_Agency_Broker</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Lookup</type>
+</CustomField>

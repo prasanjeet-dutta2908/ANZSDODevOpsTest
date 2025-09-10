@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FINS_Private_Equity_Investment_Focus__c</fullName>
+    <label>Investment Focus</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Early Start Up Fund</fullName>
+                <default>false</default>
+                <label>Early Start Up Fund</label>
+            </value>
+            <value>
+                <fullName>Fund of Funds</fullName>
+                <default>false</default>
+                <label>Fund of Funds</label>
+            </value>
+            <value>
+                <fullName>Growth Fund</fullName>
+                <default>false</default>
+                <label>Growth Fund</label>
+            </value>
+            <value>
+                <fullName>Commercial Real Estate</fullName>
+                <default>false</default>
+                <label>Commercial Real Estate</label>
+            </value>
+            <value>
+                <fullName>Residential Real Estate</fullName>
+                <default>false</default>
+                <label>Residential Real Estate</label>
+            </value>
+            <value>
+                <fullName>Mixed Use Properties</fullName>
+                <default>false</default>
+                <label>Mixed Use Properties</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

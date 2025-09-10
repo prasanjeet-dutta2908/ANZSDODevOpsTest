@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FINS_Deal_boosting__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Check this to add the &apos;Deal Boosting&apos; insight to this oppty</inlineHelpText>
+    <label>Einstein - Deal Boosting</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

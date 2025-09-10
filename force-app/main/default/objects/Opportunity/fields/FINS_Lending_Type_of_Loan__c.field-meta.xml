@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FINS_Lending_Type_of_Loan__c</fullName>
+    <label>Type of Loan</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Home Loan</fullName>
+                <default>false</default>
+                <label>Home Loan</label>
+            </value>
+            <value>
+                <fullName>Loan Against Property</fullName>
+                <default>false</default>
+                <label>Loan Against Property</label>
+            </value>
+            <value>
+                <fullName>SME Loan</fullName>
+                <default>false</default>
+                <label>SME Loan</label>
+            </value>
+            <value>
+                <fullName>Two Wheeler Loan</fullName>
+                <default>false</default>
+                <label>Auto Loan</label>
+            </value>
+            <value>
+                <fullName>Personal Loan</fullName>
+                <default>false</default>
+                <label>Personal Loan</label>
+            </value>
+            <value>
+                <fullName>SBL</fullName>
+                <default>false</default>
+                <label>Suvidha Loan</label>
+            </value>
+            <value>
+                <fullName>Consumer Durable Loan</fullName>
+                <default>false</default>
+                <label>Consumer Durable Loan</label>
+            </value>
+            <value>
+                <fullName>Education Loan</fullName>
+                <default>false</default>
+                <label>Education Loan</label>
+            </value>
+            <value>
+                <fullName>Gold Loan</fullName>
+                <default>false</default>
+                <label>Gold Loan</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

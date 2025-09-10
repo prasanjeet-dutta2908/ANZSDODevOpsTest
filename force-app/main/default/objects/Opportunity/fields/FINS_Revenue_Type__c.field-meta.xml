@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FINS_Revenue_Type__c</fullName>
+    <description>Type of revenue</description>
+    <label>Revenue Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New: Existing Client, New LoB</fullName>
+                <default>false</default>
+                <label>New: Existing Client, New LoB</label>
+            </value>
+            <value>
+                <fullName>New Client</fullName>
+                <default>false</default>
+                <label>New Client</label>
+            </value>
+            <value>
+                <fullName>Renewal: Existing Client, Existing LoB</fullName>
+                <default>false</default>
+                <label>Renewal: Existing Client, Existing LoB</label>
+            </value>
+            <value>
+                <fullName>Run-Off</fullName>
+                <default>false</default>
+                <label>Run-Off</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

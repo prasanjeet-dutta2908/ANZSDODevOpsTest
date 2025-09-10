@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FINS_Tech_Stack__c</fullName>
+    <label>Tech Stack</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Redtail</fullName>
+                <default>false</default>
+                <label>Redtail</label>
+            </value>
+            <value>
+                <fullName>Orion</fullName>
+                <default>false</default>
+                <label>Orion</label>
+            </value>
+            <value>
+                <fullName>Moneyguide Pro</fullName>
+                <default>false</default>
+                <label>Moneyguide Pro</label>
+            </value>
+            <value>
+                <fullName>Addepar</fullName>
+                <default>false</default>
+                <label>Addepar</label>
+            </value>
+            <value>
+                <fullName>Emoney</fullName>
+                <default>false</default>
+                <label>Emoney</label>
+            </value>
+            <value>
+                <fullName>Black Diamond</fullName>
+                <default>false</default>
+                <label>Black Diamond</label>
+            </value>
+            <value>
+                <fullName>Tamarac</fullName>
+                <default>false</default>
+                <label>Tamarac</label>
+            </value>
+            <value>
+                <fullName>Salesforce</fullName>
+                <default>false</default>
+                <label>Salesforce</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

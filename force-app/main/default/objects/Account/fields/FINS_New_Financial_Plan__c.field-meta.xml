@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FINS_New_Financial_Plan__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>When Toggled, a flow will run to launch prototype clickthrough for moneyguide pro workflow and New financial plan and financial goals will be created related to target records</description>
+    <label>Financial Plan New</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

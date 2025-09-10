@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataSrcDataModelFieldMap xmlns="http://soap.sforce.com/2006/04/metadata">
+    <filterApplied>false</filterApplied>
+    <masterLabel>DevOpsGCS_GCS_ANZ_POCInteraction_Typecsv_GCS_ANZ_POCInteraction_TypelosEnIBKtXiuyEz</masterLabel>
+    <sourceField>csv_GCS_ANZ_POC1.Interaction_Type__c</sourceField>
+    <targetField>csv_GCS_ANZ_POC__dlm.Interaction_Type__c</targetField>
+    <templateVersion>1</templateVersion>
+    <versionNumber>1.0</versionNumber>
+</DataSrcDataModelFieldMap>

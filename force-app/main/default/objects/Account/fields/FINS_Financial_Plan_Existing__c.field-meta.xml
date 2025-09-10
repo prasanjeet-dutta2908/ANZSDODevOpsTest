@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FINS_Financial_Plan_Existing__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>When toggled prototype builder launches goal update workflow in moneyguide pro and updates chance of success on target account&apos;s related financial plan to 90%</description>
+    <label>Financial Plan Existing</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

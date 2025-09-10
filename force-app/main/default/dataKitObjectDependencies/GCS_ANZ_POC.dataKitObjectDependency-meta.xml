@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataKitObjectDependency xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataPackageKitDef>DevOps</dataPackageKitDef>
+    <developerName>GCS_ANZ_POC</developerName>
+    <masterLabel>GCS ANZ POC</masterLabel>
+    <sourceObject>csv_GCS_ANZ_POC_1757494847114</sourceObject>
+    <sourceObjectType>DataStreamTemplate</sourceObjectType>
+    <targetObject>GCS_ANZ_POC</targetObject>
+</DataKitObjectDependency>
